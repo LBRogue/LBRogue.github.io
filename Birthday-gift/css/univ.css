@@ -2,6 +2,15 @@
 body{
 	background-color:black;
 }
+#portraitDiv{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:10;
+	height:100vh;
+	width:100vw;
+	display:block;
+}
 img{
 	height:40vw;
 	width:auto;
@@ -11,7 +20,7 @@ img{
 	position:absolute;
 	width:90vw;
 	height:calc(90vw*2/16);
-	z-index:7;
+	z-index:9;
 	top:calc(90vw*7/16);
 	left:5vw;
 	opacity: 1;

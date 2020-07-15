@@ -12,6 +12,14 @@ var itemInProgress;
 var itemInHand;
 var inAnimation = false;
 var gregorTransform = false;
+function start(){
+	console.log("yess");
+	var portraitDiv = document.getElementById("portraitDiv");
+	if (portraitDiv.offsetHeight < portraitDiv.offsetWidth){
+		portraitDiv.style.display = "none";
+		console.log("yes");
+	}
+}
 var firstDialogues = [
 	'Hello, there, adjfalsjdfsjadhfljshagjhsdaflkjhsadfhsajdfjhsdaf',
 	'part2 jadshfasljdhljsahdfkljshadfkjshadfhsjdafajslhdf'
