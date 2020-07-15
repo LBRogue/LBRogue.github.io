@@ -107,7 +107,6 @@ function move(num1){
 		var diffy = Math.floor(num/3) - Math.floor(vacantPos/3);
 		var tempnum = vacantPos;
 		var counter = 0;
-		inProgress = true;
 		inAnimation = true;
 		var id = setInterval(frame, 5);
 		function frame(){
@@ -115,7 +114,6 @@ function move(num1){
 				clearInterval(id);
 				vacantPos = cur.position;
 				cur.position = tempnum;
-				inProgress = false;
 				inAnimation = false;
 			}
 			else{
