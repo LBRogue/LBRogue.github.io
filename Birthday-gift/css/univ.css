@@ -1,0 +1,139 @@
+
+body{
+	background-color:black;
+}
+img{
+	height:auto;
+	width:50vw;
+}
+#dialogueDiv{
+	position:absolute;
+	width:90vw;
+	height:calc(90vw*2/16);
+	z-index:5;
+	top:calc(90vw*7/16);
+	left:5vw;
+	opacity: 1;
+	background-color:#d66800;
+	display:block;
+}
+div{
+	width:90vw;
+	height:calc(90vw*9/16);
+	background-color:white;
+	display:none;
+	z-index:1;
+}
+#room1{
+	background-color:yellow;
+}
+#room2{
+	display:block;
+	background-color:gray;
+}
+#room3{
+	background-color:white;
+}
+#room4{
+	background-color:lightblue;
+}
+#introDiv{
+	display:block;
+	position:absolute;
+	top:0;
+	left:5vw;
+	z-index:3;
+}
+#hotbar{
+	z-index:4;
+	background-color: red;
+	position:absolute;
+	width:90vw;
+	height:calc(90vw*2/16);
+	top:calc(90vw*7/16);
+	left:0;
+	opacity: 1;
+	background-color:darkgray;
+	display:block;
+}
+#hotbar div{
+	position:absolute;
+	background-color:gray;
+	height:calc(90vw*2/17);
+	top:calc(90vw*2/32 - 90vw*2/34);
+	width:calc(90vw*21/150);
+	display:block;
+}
+#showHotbar{
+	z-index:4;
+	left:80vw;
+	position:absolute;
+	background-color:lightgray;
+	height:calc(90vw*1/17);
+	top:calc(90vw*7/16);
+	width:calc(90vw*1/17);
+}
+#gameDiv{
+	position:absolute;
+	top:0;
+	left:5vw;
+}
+.arrowKeys{
+	position:absolute;
+	z-index:2;
+}
+svg{
+	position:absolute;
+	width:calc(4.5vw);
+	height:calc(90vw*9/160);
+}
+#leftArrow{
+	top:calc(90vw*81/320);
+	left:calc(90vw/20);
+}
+#rightArrow{
+	top:calc(90vw*81/320);
+	left:calc(90vw*9/10);
+}
+#numberPuzzle {
+	position:absolute;
+	top: calc(90vw*9/32 - 22.5vw);
+	left: calc(45vw - 22.5vw);
+	display: none;
+	background-color:yellow;
+	width:45vw;
+	height:45vw;
+}
+
+#numberPuzzle div{
+	position:absolute;
+	background-color:lightblue;
+	display:block;
+	width: 14vw;
+	height: 14vw;
+}
+#numberPuzzle2 {
+	position:absolute;
+	top:20vw;
+	left:10vw;
+	display:block;
+	background-color:yellow;
+	width:9vw;
+	height:9vw;
+}
+
+#numberPuzzle2 div{
+	position:absolute;
+	background-color:lightblue;
+	display:block;
+	width: 2.8vw;
+	height: 2.8vw;
+}
+#escapeBtn{
+	position:absolute;
+	width: 3vw;
+	height: 3vw;
+	background-color:lightblue;
+	top: calc(90vw*9/32 - 22.5vw);
+	left: 70vw;
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="icon" href="assets/img/testing.png" />
+	
+		<title> ??? </title>
+	
+		<meta charset="UTF-8" />
+		
+		<meta name="description" content="Birthday gift" />
+		<meta name="keywords" content="birthday, gift, roxanne" />
+		<meta name="author" content="Lorenzo Ante, Victoria Albitos" />
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<!-- CSS Link -->
+				
+		<link rel="stylesheet" type="text/css" href="css/univ.css" />
+		
+		<!-- JS Scripts (start) -->
+		
+		<script src="js/jquery-1.11.2.min.js"></script>
+	</head>
+	
+	<body>
+		<!-- JS Scripts (end) -->
+		<div id = "introDiv">
+		
+		</div>
+
+		<div id = "gameDiv">
+		<div id = "room1">
+		1
+		<img src = "assets/img/testing.png" usemap = "#testmap">
+		<map name = "testmap">
+		<area shape = "poly" coords = "0,0,0,100,100,100,100,0" >
+		</map>
+		</div>
+		<div id = "room2">
+		2
+		</div>
+		<div id = "room3">
+		<div id = "numberPuzzle">
+		<div id = "1" onclick = "move(1)">1</div>
+		<div id = "2" onclick = "move(2)">2</div>
+		<div id = "3" onclick = "move(3)">3</div>
+		<div id = "4" onclick = "move(4)">4</div>
+		<div id = "5" onclick = "move(5)">5</div>
+		<div id = "6" onclick = "move(6)">6</div>
+		<div id = "7" onclick = "move(7)">7</div>
+		<div id = "8" onclick = "move(8)">8</div>
+		</div>
+		<div id = "numberPuzzle2" onclick = "inNumberPuzzle()">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		</div>
+		<div id = "escapeBtn" onclick = "outNumberPuzzle()">x
+		</div>
+		3
+		</div>
+		<div id = "room4">
+		4
+		</div>
+		<svg class = "arrowKeys" id = "leftArrow">
+			<polygon points="0,0,0,0,0,0" style="fill:#d18304;stroke:black;stroke-width:1" onmouseover = "onLeft('in')" onmouseout = "onLeft('out')" onclick = "toTheLeft()"/>
+		</svg>
+		<svg class = "arrowKeys" id = "rightArrow">
+			<polygon points="0,0,0,0,0,0" style="fill:#d18304;stroke:black;stroke-width:1" onmouseover = "onRight('in')" onmouseout = "onRight('out')" onclick = "toTheRight()"/>
+		</svg>
+		<div id = "hotbar">
+		<div id = "item1" onclick = "itemClick(0)"></div>
+		<div id = "item2" onclick = "itemClick(1)"></div>
+		<div id = "item3" onclick = "itemClick(2)"></div>
+		<div id = "item4" onclick = "itemClick(3)"></div>
+		<div id = "item5" onclick = "itemClick(4)"></div>
+		<div id = "item6" onclick = "itemClick(5)"></div>
+		<div id = "hideHotbar" onclick = "hideHotbar()">hide hotbar</div>
+		</div>
+		<div id = "showHotbar" onclick = "showHotbar()">
+		showhotbar
+		</div>
+		</div>
+		<div id = "dialogueDiv" onclick = "proceed()">
+		<h2> dialogue blah blah
+		</h2>
+		</div>
+		<script src="js/univ.js"></script>
+		
+		<script src="js/index.js"></script>
+	</body>
+</html>
+
