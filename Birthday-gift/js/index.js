@@ -9,7 +9,9 @@ var inProgress = false;
 var itemSelected = false;
 var gregorHuman = true;
 var itemInProgress;
+var itemInHand;
 var inAnimation = false;
+var gregorTransform = false;
 var firstDialogues = [
 	'Hello, there, adjfalsjdfsjadhfljshagjhsdaflkjhsadfhsajdfjhsdaf',
 	'part2 jadshfasljdhljsahdfkljshadfkjshadfhsjdafajslhdf'
@@ -19,8 +21,8 @@ var numberPuzzleCode = [
 	3,
 	4,
 	5,
+	8,
 	7,
-	6,
 	0,
 	2
 ]
@@ -59,7 +61,7 @@ function fadeOut(divName){
 			elem.style.opacity = 1;
 		} 
 		else {
-			elem.style.opacity -= .01;
+			elem.style.opacity -= .04;
 		}
 	}
 }
@@ -110,7 +112,7 @@ function move(num1){
 		inAnimation = true;
 		var id = setInterval(frame, 5);
 		function frame(){
-			if (counter == 100){
+			if (counter == 50){
 				clearInterval(id);
 				vacantPos = cur.position;
 				cur.position = tempnum;
@@ -118,29 +120,15 @@ function move(num1){
 			}
 			else{
 				counter++;
-				cur.style.top = 0.75 - 14.75*diffy*counter/100 + 14.75*(Math.floor(num/3)) + "vw";
-				cur.style.left = 0.75 - 14.75*diffx*counter/100 + 14.75*(num%3) + "vw";
+				cur.style.top = 0.75 - 14.75*diffy*counter/50 + 14.75*(Math.floor(num/3)) + "vw";
+				cur.style.left = 0.75 - 14.75*diffx*counter/50 + 14.75*(num%3) + "vw";
 			}
 		}
 
 	}		
 	}
 }
-function fadeOut(divName){
-	var elem = document.getElementById(divName);
-	elem.style.opacity = 1;
-	var id = setInterval(frame, 5);
-	function frame() {
-		if (elem.style.opacity == 0) {
-			clearInterval(id);
-			elem.style.display = "none";
-			elem.style.opacity = 1;
-		} 
-		else {
-			elem.style.opacity -= .01;
-		}
-	}
-}
+
 function startGame(){
 	document.getElementById("gameDiv").style.display = "block";
 	arrangeHotbar();
@@ -172,9 +160,9 @@ function startGame(){
 	
 }
 
-toTheLeft = function(){
+toTheLeft = function(){//magdagdag ng fcn para kay gregor transform
 	if(!inProgress){
-	openDiv--;
+			openDiv--;
 	if(openDiv==0){
 		document.getElementsByTagName("polygon")[0].style.display = "none";
 	}
@@ -185,6 +173,12 @@ toTheLeft = function(){
 		document.getElementById("gameDiv").children[i].style.display = "none";
 	}
 	document.getElementById("gameDiv").children[openDiv].style.display = "block";
+		if(gregorTransform){
+			document.getElementById("gregorHuman").style.display = "none";
+			document.getElementById("gregorMeta").style.display = "block";
+			gregorHuman = false;
+		}
+
 	}
 }
 toTheRight = function(){
@@ -200,6 +194,12 @@ toTheRight = function(){
 		document.getElementById("gameDiv").children[i].style.display = "none";
 	}
 	document.getElementById("gameDiv").children[openDiv].style.display = "block";
+		if(gregorTransform){
+			document.getElementById("gregorHuman").style.display = "none";
+			document.getElementById("gregorMeta").style.display = "block";
+			gregorHuman = false;
+		}
+
 	}
 }
 onLeft = function(s){
@@ -232,9 +232,38 @@ function tryCodes(){
 		unlock();
 	}
 }
-function itemClick(num){
+function hotbarStore(item){
 	var hotbar = document.getElementById("hotbar");
-	if((hotbar.children[num].item == "none") && ((hotbar.children[num].selected) || (!itemSelected))){ // should be != "none"
+	var vacant;
+	for(let i = 0; i < hotbar.children.length; i++){
+		if (hotbar.children[i].item == "none"){
+			vacant = i;
+			break;
+		}
+	}
+			console.log(vacant);
+	document.getElementById(item).style.display = "none";
+	hotbar.children[vacant].item = item;
+	var node = document.createElement("img");
+	node.setAttribute("src", "assets/img/" + item + ".png");
+	node.setAttribute("onclick", "itemClick(" + item + ")");
+	hotbar.children[vacant].appendChild(node);
+}
+//unfinished
+function hotbarRemove(item){
+	var hotbar = document.getElementById("hotbar");
+	for(let i = 0; i < hotbar.children.length; i++){
+		if (hotbar.children[i].item == item){
+			hotbar.children[i].item = "none";
+			hotbar.children[i].innerHTML = "";
+			break;
+		}
+	}
+}
+function hotbarClick(num){
+	console.log("yes");
+	var hotbar = document.getElementById("hotbar");
+	if((hotbar.children[num].selected) || (!itemSelected)){ // should be != "none" nvmmm
 		if(hotbar.children[num].style.backgroundColor != "lightgray"){	
 			hotbar.children[num].style.backgroundColor = "lightgray";
 			hotbar.children[num].selected = true;
@@ -250,16 +279,11 @@ function itemClick(num){
 }
 // unfinished
 function selectItem(item){
-	switch(item){
-		case "milk":
-		break;
-		default:
-		break;
-	}
+	itemInHand = item;
 }
 //unfinished
 function switchLight(){
-	if(gregorHuman){
+	if(!gregorHuman){
 		
 	}
 }
@@ -274,4 +298,18 @@ function hideHotbar(){
 function showHotbar(){
 	document.getElementById("hotbar").style.display = "block";
 	document.getElementById("showHotbar").style.display = "none";
+}
+//unfinished
+function itemClick(item){
+	switch(item){
+		case "gregorHuman":
+			if (itemInHand == "milk"){
+				gregorTransform = true;
+				console.log("transform");
+				hotbarRemove("milk");
+			}
+		break;
+		default:
+		break;
+	}
 }

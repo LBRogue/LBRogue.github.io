@@ -31,13 +31,26 @@
 		<div id = "gameDiv">
 		<div id = "room1">
 		1
-		<img src = "assets/img/testing.png" usemap = "#testmap">
-		<map name = "testmap">
+		<img src = "assets/img/testing.png" id = "testing">
+		<img src = "assets/img/testing.png" id = "chair">
+		<img src = "assets/img/testing.png" id = "code">
+		<img src = "assets/img/testing.png" id = "gregorHuman" usemap = "#gregorHuman" onclick = "itemClick('gregorHuman')">
+		<map name = "gregorHuman">
 		<area shape = "poly" coords = "0,0,0,100,100,100,100,0" >
 		</map>
+		<img src = "assets/img/testing.png" id = "gregorMeta" usemap = "#gregorMeta" onclick = "itemClick('gregorMeta')">
+		<map name = "gregorMeta">
+		<area shape = "poly" coords = "0,0,0,100,100,100,100,0" >
+		</map>
+		<img src = "assets/img/testing.png" id = "painting" onclick = "itemClick('painting')">
 		</div>
 		<div id = "room2">
-		2
+		2<img src = "assets/img/testing.png" id = "drawer" usemap = "#drawerMap">
+		<map name = "drawerMap">
+		<area shape = "poly" coords = "0,0,0,100,100,100,100,0" >
+		</map>
+		<img src = "assets/img/testing.png" id = "milk" onclick = "hotbarStore('milk')">
+		<img src = "assets/img/testing.png" id = "key" onclick = "hotbarStore('key')">
 		</div>
 		<div id = "room3">
 		<div id = "numberPuzzle">
@@ -74,12 +87,12 @@
 			<polygon points="0,0,0,0,0,0" style="fill:#d18304;stroke:black;stroke-width:1" onmouseover = "onRight('in')" onmouseout = "onRight('out')" onclick = "toTheRight()"/>
 		</svg>
 		<div id = "hotbar">
-		<div id = "item1" onclick = "itemClick(0)"></div>
-		<div id = "item2" onclick = "itemClick(1)"></div>
-		<div id = "item3" onclick = "itemClick(2)"></div>
-		<div id = "item4" onclick = "itemClick(3)"></div>
-		<div id = "item5" onclick = "itemClick(4)"></div>
-		<div id = "item6" onclick = "itemClick(5)"></div>
+		<div id = "item1" onclick = "hotbarClick(0)"></div>
+		<div id = "item2" onclick = "hotbarClick(1)"></div>
+		<div id = "item3" onclick = "hotbarClick(2)"></div>
+		<div id = "item4" onclick = "hotbarClick(3)"></div>
+		<div id = "item5" onclick = "hotbarClick(4)"></div>
+		<div id = "item6" onclick = "hotbarClick(5)"></div>
 		<div id = "hideHotbar" onclick = "hideHotbar()">hide hotbar</div>
 		</div>
 		<div id = "showHotbar" onclick = "showHotbar()">

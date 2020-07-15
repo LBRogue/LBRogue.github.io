@@ -3,14 +3,15 @@ body{
 	background-color:black;
 }
 img{
-	height:auto;
-	width:50vw;
+	height:40vw;
+	width:auto;
+	position:absolute;
 }
 #dialogueDiv{
 	position:absolute;
 	width:90vw;
 	height:calc(90vw*2/16);
-	z-index:5;
+	z-index:7;
 	top:calc(90vw*7/16);
 	left:5vw;
 	opacity: 1;
@@ -63,6 +64,14 @@ div{
 	top:calc(90vw*2/32 - 90vw*2/34);
 	width:calc(90vw*21/150);
 	display:block;
+}
+
+#hotbar div img{
+	position:relative;
+	margin: calc(90vw*2/34 - 90vw*8/170) auto calc(90vw*2/34 - 90vw*8/170) auto;
+	height:calc(90vw*8/85);
+	width:auto;
+	background-color:black;
 }
 #showHotbar{
 	z-index:4;
@@ -136,4 +145,52 @@ svg{
 	background-color:lightblue;
 	top: calc(90vw*9/32 - 22.5vw);
 	left: 70vw;
+}
+
+
+
+
+/* items */
+#chair{
+	height:20vh;
+	top:0;
+	left:0;
+}
+#gregorHuman{
+	height:30vh;
+	top:20vh;
+	left:0
+}
+#gregorMeta{
+	height:30vh;
+	top:20vh;
+	left:20vw;
+	display:none;
+}
+#milk{
+	height:10vh;
+	top:0;
+	left:0;
+}
+#code{
+	height:20vh;
+	top:40vh;
+	left:0;
+	display:none;
+}
+#drawer{
+	height:30vh;
+	top:0;
+	left:20vw;
+}
+#painting{
+	height:30vh;
+	top:0;
+	left:20vw;
+}
+#key{
+	height:5vh;
+	top:0;
+	left:20vw;
+	display:none;
 }
