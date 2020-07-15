@@ -9,6 +9,7 @@ var inProgress = false;
 var itemSelected = false;
 var gregorHuman = true;
 var itemInProgress;
+var inAnimation = false;
 var firstDialogues = [
 	'Hello, there, adjfalsjdfsjadhfljshagjhsdaflkjhsadfhsajdfjhsdaf',
 	'part2 jadshfasljdhljsahdfkljshadfkjshadfhsjdafajslhdf'
@@ -98,7 +99,7 @@ function outNumberPuzzle(){
 }
 
 function move(num1){
-	if((!inProgress) || (itemInProgress == "numberPuzzle")){
+	if(((!inProgress) || (itemInProgress == "numberPuzzle")) && (!inAnimation) ){
 	var cur = document.getElementById(num1);
 	num = cur.position;
 	if(((Math.abs (num - vacantPos) == 1) && (Math.floor(num / 3) == Math.floor(vacantPos / 3))) || (Math.abs(num - vacantPos) == 3)){
@@ -107,6 +108,7 @@ function move(num1){
 		var tempnum = vacantPos;
 		var counter = 0;
 		inProgress = true;
+		inAnimation = true;
 		var id = setInterval(frame, 5);
 		function frame(){
 			if (counter == 100){
@@ -114,6 +116,7 @@ function move(num1){
 				vacantPos = cur.position;
 				cur.position = tempnum;
 				inProgress = false;
+				inAnimation = false;
 			}
 			else{
 				counter++;
