@@ -35,25 +35,24 @@
 		<div id = "room1">
 		1
 		<img src = "assets/img/testing.png" id = "testing">
-		<img src = "assets/img/testing.png" id = "chair">
+		<img src = "assets/img/chair.png" id = "chair">
 		<img src = "assets/img/testing.png" id = "code">
-		<img src = "assets/img/testing.png" id = "gregorHuman" usemap = "#gregorHuman" onclick = "itemClick('gregorHuman')">
+		<img src = "assets/img/testing.png" id = "switch" onclick = "switchLight()">
+		<img src = "assets/img/gregorHuman.png" id = "gregorHuman" usemap = "#gregorHuman" onclick = "itemClick('gregorHuman')">
 		<map name = "gregorHuman">
 		<area shape = "poly" coords = "0,0,0,100,100,100,100,0" >
 		</map>
-		<img src = "assets/img/testing.png" id = "gregorMeta" usemap = "#gregorMeta" onclick = "itemClick('gregorMeta')">
+		<img src = "assets/img/gregorMeta.png" id = "gregorMeta" usemap = "#gregorMeta" onclick = "itemClick('gregorMeta')">
 		<map name = "gregorMeta">
 		<area shape = "poly" coords = "0,0,0,100,100,100,100,0" >
 		</map>
-		<img src = "assets/img/testing.png" id = "painting" onclick = "itemClick('painting')">
+		<img src = "assets/img/painting.png" id = "painting" onclick = "itemClick('painting')">
 		</div>
 		<div id = "room2">
-		2<img src = "assets/img/testing.png" id = "drawer" usemap = "#drawerMap">
-		<map name = "drawerMap">
-		<area shape = "poly" coords = "0,0,0,100,100,100,100,0" >
-		</map>
-		<img src = "assets/img/testing.png" id = "milk" onclick = "hotbarStore('milk')">
-		<img src = "assets/img/testing.png" id = "key" onclick = "hotbarStore('key')">
+		2<img src = "assets/img/cabinetClosed.png" id = "cabinet" onclick = "itemClick('cabinet')">
+		<img src = "assets/img/milk.png" id = "milk" onclick = "hotbarStore('milk')">
+		<img src = "assets/img/key.png" id = "key" onclick = "hotbarStore('key')">
+		<img src = "assets/img/number5.png" id = "number5" onclick = "hotbarStore('number5')">
 		</div>
 		<div id = "room3">
 		<div id = "numberPuzzle">
@@ -66,7 +65,7 @@
 		<div id = "7" onclick = "move(7)">7</div>
 		<div id = "8" onclick = "move(8)">8</div>
 		</div>
-		<div id = "numberPuzzle2" onclick = "inNumberPuzzle()">
+		<div id = "numberPuzzle2" onclick = "itemClick('numberPuzzle2')">
 		<div></div>
 		<div></div>
 		<div></div>
@@ -102,8 +101,10 @@
 		showhotbar
 		</div>
 		</div>
-		<div id = "dialogueDiv" onclick = "proceed()">
-		<h2> dialogue blah blah
+		<div id = "dialogueDiv" onclick = "intro()">
+		<h2 id = "name">
+		</h2>
+		<h2 id = "dialogue"> dialogue blah blah
 		</h2>
 		</div>
 		<script src="js/univ.js"></script>

@@ -6,12 +6,17 @@ var divW;
 var noDialogues = 0;
 var vacantPos = 8;
 var inProgress = false;
+var inDialogue = true;
 var itemSelected = false;
 var gregorHuman = true;
 var itemInProgress;
 var itemInHand;
 var inAnimation = false;
 var gregorTransform = false;
+var lightsOn = true;
+var gregorOnPainting = false;
+var number5Missing = true;
+var gregorGoPainting = false;
 function start(){
 	console.log("yess");
 	var portraitDiv = document.getElementById("portraitDiv");
@@ -21,8 +26,13 @@ function start(){
 	}
 }
 var firstDialogues = [
-	'Hello, there, adjfalsjdfsjadhfljshagjhsdaflkjhsadfhsajdfjhsdaf',
-	'part2 jadshfasljdhljsahdfkljshadfkjshadfhsjdafajslhdf'
+	'Hello, there',
+	'part2 click to go game '
+]
+var gregorDialogues = [
+	'I\'m a traveling salesman',
+	'That painting right there is beautiful',
+	'I have to sleep early, my train leaves at 5'
 ]
 var numberPuzzleCode = [
 	1,
@@ -34,26 +44,15 @@ var numberPuzzleCode = [
 	0,
 	2
 ]
-function proceed(){
-	var counter = 0;
+function intro(){
 	if((!inProgress) && (noDialogues == firstDialogues.length)){
 		startGame();
+		document.getElementById("dialogueDiv").setAttribute("onclick", "clickDialogue()");
+		inDialogue = false;
 	}
 	else if(!inProgress){
-	inProgress = true;
-	document.getElementById("dialogueDiv").children[0].innerHTML = "";
-	var id = setInterval(frame,50);
-	function frame(){
-		if(counter == firstDialogues[noDialogues].length){
-			clearInterval(id);
-			inProgress = false;
-			noDialogues++;
-		}
-		else{
-			document.getElementById("dialogueDiv").children[0].innerHTML += firstDialogues[noDialogues].charAt(counter);
-			counter++;
-		}
-	}
+	writeDialogue("console", firstDialogues[noDialogues]);
+	noDialogues++
 	}
 	
 }
@@ -88,6 +87,10 @@ function arrangePuzzles(){
 			numberPuzzle2.children[i].style.top = 0.15 + 2.95*(Math.floor(numberPuzzle.children[i].position/3)) + "vw";
 			numberPuzzle2.children[i].style.left = 0.15 + 2.95*(numberPuzzle.children[i].position%3) + "vw";
 		}
+	if (number5Missing){
+		numberPuzzle2.children[4].style.display = "none"
+
+	}
 }
 function inNumberPuzzle(){
 	if(!inProgress){
@@ -169,7 +172,7 @@ function startGame(){
 }
 
 toTheLeft = function(){//magdagdag ng fcn para kay gregor transform
-	if(!inProgress){
+	if((!inProgress) && (!inDialogue)){
 			openDiv--;
 	if(openDiv==0){
 		document.getElementsByTagName("polygon")[0].style.display = "none";
@@ -190,7 +193,7 @@ toTheLeft = function(){//magdagdag ng fcn para kay gregor transform
 	}
 }
 toTheRight = function(){
-	if(!inProgress){
+	if((!inProgress) && (!inDialogue)){
 	openDiv++;
 	if(openDiv==3){
 		document.getElementsByTagName("polygon")[1].style.display = "none";
@@ -206,6 +209,10 @@ toTheRight = function(){
 			document.getElementById("gregorHuman").style.display = "none";
 			document.getElementById("gregorMeta").style.display = "block";
 			gregorHuman = false;
+		}
+		if(gregorGoPainting){
+			gregorOnPainting = true;
+			//lagay dito coords
 		}
 
 	}
@@ -256,6 +263,8 @@ function hotbarStore(item){
 	node.setAttribute("src", "assets/img/" + item + ".png");
 	node.setAttribute("onclick", "itemClick(" + item + ")");
 	hotbar.children[vacant].appendChild(node);
+	var imgWidth = hotbar.children[vacant].children[0].offsetWidth;
+	hotbar.children[vacant].children[0].style.margin = 	"calc(90vw*2/34 - 90vw*8/170) " + (divW*21/150 - imgWidth)/2 + "px calc(90vw*2/34 - 90vw*8/170) " + (divW*21/150 - imgWidth)/2 + "px";
 }
 //unfinished
 function hotbarRemove(item){
@@ -291,8 +300,23 @@ function selectItem(item){
 }
 //unfinished
 function switchLight(){
-	if(!gregorHuman){
-		
+	if(gregorHuman){
+		writeDialogue("Gregor","Don't turn off the light, I'm about to read the newspaper.");
+	}
+	else if (lightsOn){
+		document.getElementById("room1").style.filter = "brightness(80%)";
+		lightsOn = false;
+	}
+	else {
+		document.getElementById("room1").style.filter = "none";
+		lightsOn = true;
+	}
+	if ((!lightsOn) && (gregorOnPainting)){
+		document.getElementById("code").style.display = "block";
+		document.getElementById("code").style.filter = "none";
+	}
+	else{
+		document.getElementById("code").style.display = "none";
 	}
 }
 //unfinished
@@ -315,9 +339,72 @@ function itemClick(item){
 				gregorTransform = true;
 				console.log("transform");
 				hotbarRemove("milk");
+				writeDialogue("Gregor", "Wow! Thanks, milk is actually my favorite drink");
 			}
+			else{
+				writeDialogue("Gregor", gregorDialogues[Math.floor(Math.random()*gregorDialogues.length)]);
+			}
+		break;
+		case "gregorMeta":
+			writeDialogue("???", "*inaudible noise*");
+		break;
+		case "painting":
+			if (!gregorHuman){
+				writeDialogue("???", "*inaudible noise*");
+				gregorGoPainting = true;
+				console.log("gregorOnPainting");
+			}
+		break;
+		case "numberPuzzle2":
+			console.log("number");
+			if (itemInHand == "number5"){
+				number5Missing = false;
+				document.getElementById("numberPuzzle2").children[4].style.display = "block"
+				document.getElementById("numberPuzzle2").setAttribute("onclick","inNumberPuzzle()");
+				hotbarRemove("number5");
+				arrangePuzzles();
+			}
+			else{
+				writeDialogue("Roxanne", "the missing number must be somewhere");
+			}
+		break;
+		case "cabinet":
+			document.getElementById("cabinet").setAttribute("src", "assets/img/cabinetOpen.png");
+			document.getElementById("number5").style.display = "block";
+			document.getElementById("key").style.display = "block";
 		break;
 		default:
 		break;
+	}
+}
+//unfinished
+function writeDialogue(name, message){
+	if(!inProgress){
+	document.getElementById("dialogueDiv").style.display = "block";
+	var dialogue = document.getElementById("dialogue");
+	var dialogueNameDiv = document.getElementById("name");
+	inProgress = true;
+	inDialogue = true;
+	dialogue.innerHTML = "";
+	dialogueNameDiv.innerHTML = name;
+	var counter = 0;
+	var id = setInterval(frame,50);
+	function frame(){
+		if(counter == message.length){
+			clearInterval(id);
+			inProgress = false;
+		}
+		else{
+			dialogue.innerHTML += message.charAt(counter);
+			counter++;
+		}
+	}
+	}
+}
+//unfinished
+function clickDialogue(){
+	if ((!inProgress) && (inDialogue)){
+		document.getElementById("dialogueDiv").style.display = "none";
+		inDialogue = false;
 	}
 }

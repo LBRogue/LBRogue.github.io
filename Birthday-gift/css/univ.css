@@ -27,6 +27,14 @@ img{
 	background-color:#d66800;
 	display:block;
 }
+#switch{
+	position:absolute;
+	width:10vw;
+	left:80vw;
+	height:auto;
+	background-color:black;
+	display:block;
+}
 div{
 	width:90vw;
 	height:calc(90vw*9/16);
@@ -77,10 +85,8 @@ div{
 
 #hotbar div img{
 	position:relative;
-	margin: calc(90vw*2/34 - 90vw*8/170) auto calc(90vw*2/34 - 90vw*8/170) auto;
 	height:calc(90vw*8/85);
 	width:auto;
-	background-color:black;
 }
 #showHotbar{
 	z-index:4;
@@ -171,6 +177,7 @@ svg{
 	left:0
 }
 #gregorMeta{
+	z-index:5;
 	height:30vh;
 	top:20vh;
 	left:20vw;
@@ -187,12 +194,13 @@ svg{
 	left:0;
 	display:none;
 }
-#drawer{
+#cabinet{
 	height:30vh;
 	top:0;
 	left:20vw;
 }
 #painting{
+	z-index:4;
 	height:30vh;
 	top:0;
 	left:20vw;
@@ -201,5 +209,11 @@ svg{
 	height:5vh;
 	top:0;
 	left:20vw;
+	display:none;
+}
+#number5{
+	height:5vh;
+	top:10vh;
+	left:0vw;
 	display:none;
 }
