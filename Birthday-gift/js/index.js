@@ -35,7 +35,7 @@ var firstDialogues = [
 	'posibleng may interaction or mapunta sa hotbar mo',
 	'click mo yung item sa hotbar and another item sa screen',
 	'pwede rin na magsalita yung tao click mo lang',
-	'and that\'s it. Click to proceed.'
+	'and that\'s it. (btw sorry sa roxy lake HAHA) Click to proceed.'
 	
 ]
 var gregorDialogues = [
