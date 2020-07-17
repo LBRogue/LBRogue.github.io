@@ -18,6 +18,7 @@ var gregorOnPainting = false;
 var number5Missing = true;
 var gregorGoPainting = false;
 var cabinetOpen = false;
+var keyStatus = false;
 function start(){
 	console.log("yess");
 	var portraitDiv = document.getElementById("portraitDiv");
@@ -31,9 +32,9 @@ var firstDialogues = [
 	'part2 click to go game '
 ]
 var gregorDialogues = [
-	'I\'m a traveling salesman',
-	'That painting right there is beautiful',
-	'I have to sleep early, my train leaves at 5'
+	'I\'m a traveling salesman.',
+	'That painting right there is beautiful.',
+	'I have to sleep early, my train leaves at 5.'
 ]
 var numberPuzzleCode = [
 	1,
@@ -85,8 +86,8 @@ function arrangePuzzles(){
 		for(let i = 0; i < numberPuzzle.childElementCount; i++){
 			numberPuzzle.children[i].style.top = 0.75 + 14.75*(Math.floor(numberPuzzle.children[i].position/3)) + "vw";
 			numberPuzzle.children[i].style.left = 0.75 + 14.75*(numberPuzzle.children[i].position%3) + "vw";
-			numberPuzzle2.children[i].style.top = 0.15 + 2.95*(Math.floor(numberPuzzle.children[i].position/3)) + "vw";
-			numberPuzzle2.children[i].style.left = 0.15 + 2.95*(numberPuzzle.children[i].position%3) + "vw";
+			numberPuzzle2.children[i].style.top = 0.075 + 1.075*(Math.floor(numberPuzzle.children[i].position/3)) + "vw";
+			numberPuzzle2.children[i].style.left = 0.075 + 1.075*(numberPuzzle.children[i].position%3) + "vw";
 		}
 	if (number5Missing){
 		numberPuzzle2.children[4].style.display = "none"
@@ -148,7 +149,7 @@ function startGame(){
 	fadeOut("dialogueDiv");
 	fadeOut("introDiv");
 	openDiv = 1;
-	rooms = 4;
+	rooms = 3;
 	imgW = document.getElementsByTagName("img")[0].offsetWidth;
 	divW = document.getElementById("room2").offsetWidth; 
 	divH = document.getElementById("room2").offsetHeight; 
@@ -195,7 +196,7 @@ toTheLeft = function(){//magdagdag ng fcn para kay gregor transform
 toTheRight = function(){
 	if((!inProgress) && (!inDialogue)){
 	openDiv++;
-	if(openDiv==3){
+	if(openDiv==2){
 		document.getElementsByTagName("polygon")[1].style.display = "none";
 	}
 	else{
@@ -212,9 +213,16 @@ toTheRight = function(){
 		}
 		if(gregorGoPainting){
 			gregorOnPainting = true;
+			var gregorMetaCurrent = document.getElementById("gregorMeta");
+			gregorMetaCurrent.style.top = "1vw";
+			gregorMetaCurrent.style.left = "8vw";
+			gregorMetaCurrent.style.transform = "rotate(330deg)";
+			gregorMetaCurrent.style.height = "13vw";
 			//lagay dito coords
 		}
-
+		if(!lightsOn){
+			switchLight();
+		}
 	}
 }
 onLeft = function(s){
@@ -237,7 +245,6 @@ function tryCodes(){
 	var numbers = document.getElementById("numberPuzzle").children
 	var numberPuzzleStatus = true;
 	var symbolsStatus = true;
-	var keyStatus = true;
 	for(let i = 0; i < numbers.length; i++){
 		if(numbers[i].position != numberPuzzleCode[i]){
 			numberPuzzleStatus = false;
@@ -245,6 +252,9 @@ function tryCodes(){
 	}
 	if((numberPuzzleStatus) && (symbolsStatus) && (keyStatus)){
 		unlock();
+	}
+	else{
+		writeDialogue("Roxanne", "It's still locked");
 	}
 }
 function hotbarStore(item){
@@ -271,6 +281,7 @@ function hotbarRemove(item){
 	var hotbar = document.getElementById("hotbar");
 	for(let i = 0; i < hotbar.children.length; i++){
 		if (hotbar.children[i].item == item){
+			hotbarClick(i);
 			hotbar.children[i].item = "none";
 			hotbar.children[i].innerHTML = "";
 			break;
@@ -312,6 +323,7 @@ function switchLight(){
 		lightsOn = true;
 	}
 	if ((!lightsOn) && (gregorOnPainting)){
+		console.log("code");
 		document.getElementById("code").style.display = "block";
 		document.getElementById("code").style.filter = "none";
 	}
@@ -322,6 +334,9 @@ function switchLight(){
 //unfinished
 function unlock(){
 	console.log("unlocked.");
+	document.getElementById("numberPuzzle2").style.display = "none";
+	document.getElementById("safe").setAttribute("src","assets/img/safeOpen.png");
+	document.getElementById("surprise2").style.display = "block";
 }
 function hideHotbar(){
 	document.getElementById("hotbar").style.display = "none";
@@ -339,7 +354,7 @@ function itemClick(item){
 				gregorTransform = true;
 				console.log("transform");
 				hotbarRemove("milk");
-				writeDialogue("Gregor", "Wow! Thanks, milk is actually my favorite drink");
+				writeDialogue("Gregor", "Wow! Thanks, milk is actually my favorite drink.");
 			}
 			else{
 				writeDialogue("Gregor", gregorDialogues[Math.floor(Math.random()*gregorDialogues.length)]);
@@ -365,7 +380,7 @@ function itemClick(item){
 				arrangePuzzles();
 			}
 			else{
-				writeDialogue("Roxanne", "the missing number must be somewhere");
+				writeDialogue("Roxanne", "The missing number must be somewhere.");
 			}
 		break;
 		case "cabinet":
@@ -377,6 +392,19 @@ function itemClick(item){
 			}
 			document.getElementById("number5").style.display = "block";
 			document.getElementById("key").style.display = "block";
+		break;
+		case "safe":
+			if (itemInHand == "key"){
+				keyStatus = true;
+				document.getElementById("safe").setAttribute("onclick", "tryCodes()");
+				hotbarRemove("key");
+			}
+			else if (!keyStatus){
+				writeDialogue("Roxanne", "It's locked.");
+			}
+			else{
+				writeDialogue("Roxanne", "It's still locked.");
+			}
 		break;
 		default:
 		break;
@@ -393,7 +421,7 @@ function writeDialogue(name, message){
 	dialogue.innerHTML = "";
 	dialogueNameDiv.innerHTML = name;
 	var counter = 0;
-	var id = setInterval(frame,50);
+	var id = setInterval(frame,30);
 	function frame(){
 		if(counter == message.length){
 			clearInterval(id);
