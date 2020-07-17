@@ -342,6 +342,7 @@ function switchLight(){
 //unfinished
 function unlock(){
 	console.log("unlocked.");
+	writeDialogue("Console", "Happy Birthday Roxanne!");
 	document.getElementById("numberPuzzle2").style.display = "none";
 	document.getElementById("safe").setAttribute("src","assets/img/safeOpen.png");
 	document.getElementById("surprise2").style.display = "block";
@@ -452,6 +453,7 @@ function clickDialogue(){
 }
 //unfinished 
 function openSurprise(){
+	if(!inDialogue){
 	fadeOut("room2");
 	document.getElementById("hotbar").style.display = "none";
 	document.getElementById("showHotbar").style.display = "none";
@@ -459,6 +461,7 @@ function openSurprise(){
 	document.getElementsByTagName("polygon")[0].setAttribute("onclick", "toTheLeft2()");
 	document.getElementsByTagName("polygon")[1].setAttribute("onclick", "toTheRight2()");
 	toTheLeft2();
+	}
 }
 
 toTheLeft2 = function(){//magdagdag ng fcn para kay gregor transform
