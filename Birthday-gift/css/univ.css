@@ -44,6 +44,7 @@ div{
 }
 #room1{
 	background-image: url("../assets/img/dorm.png");
+	background-size: 90vw calc(90vw*9/16);
 }
 #room2{
 	display:block;
