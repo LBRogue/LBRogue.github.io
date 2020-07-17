@@ -17,6 +17,7 @@ var lightsOn = true;
 var gregorOnPainting = false;
 var number5Missing = true;
 var gregorGoPainting = false;
+var cabinetOpen = false;
 function start(){
 	console.log("yess");
 	var portraitDiv = document.getElementById("portraitDiv");
@@ -151,7 +152,6 @@ function startGame(){
 	imgW = document.getElementsByTagName("img")[0].offsetWidth;
 	divW = document.getElementById("room2").offsetWidth; 
 	divH = document.getElementById("room2").offsetHeight; 
-	document.getElementsByTagName("area")[0].setAttribute("coords","0,0,0,"+imgW/2+","+imgW/2+","+imgW/2+","+imgW/2+",0");
 	document.getElementsByTagName("polygon")[0].points[0].x = Math.floor(divW/20);
 	document.getElementsByTagName("polygon")[0].points[0].y = 0;
 	document.getElementsByTagName("polygon")[0].points[1].x = 0;
@@ -369,7 +369,12 @@ function itemClick(item){
 			}
 		break;
 		case "cabinet":
+			var width1 = document.getElementById("cabinet").offsetWidth;
+			if (!cabinetOpen){
 			document.getElementById("cabinet").setAttribute("src", "assets/img/cabinetOpen.png");
+			document.getElementById("cabinet").style.left = divW*25/90 - width1*177/576 + "px";
+				cabinetOpen = true;
+			}
 			document.getElementById("number5").style.display = "block";
 			document.getElementById("key").style.display = "block";
 		break;

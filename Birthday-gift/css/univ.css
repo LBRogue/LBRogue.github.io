@@ -43,7 +43,7 @@ div{
 	z-index:1;
 }
 #room1{
-	background-color:yellow;
+	background-image: url("../assets/img/dorm.png");
 }
 #room2{
 	display:block;
@@ -167,53 +167,55 @@ svg{
 
 /* items */
 #chair{
-	height:20vh;
-	top:0;
-	left:0;
+	height:27.5vw;
+	top:21.5vw;
+	left:5vw;
+	z-index:3;
 }
 #gregorHuman{
-	height:30vh;
-	top:20vh;
-	left:0
+	z-index:4;
+	height:30vw;
+	top:20vw;
+	left:5vw;;
 }
 #gregorMeta{
 	z-index:5;
-	height:30vh;
-	top:20vh;
+	height:30vw;
+	top:20vw;
 	left:20vw;
 	display:none;
 }
 #milk{
-	height:10vh;
+	height:10vw;
 	top:0;
 	left:0;
 }
 #code{
-	height:20vh;
-	top:40vh;
+	height:20vw;
+	top:40vw;
 	left:0;
 	display:none;
 }
 #cabinet{
-	height:30vh;
-	top:0;
-	left:20vw;
+	height:20vw;
+	top:10vw;
+	left:25vw;
 }
 #painting{
 	z-index:4;
-	height:30vh;
-	top:0;
-	left:20vw;
+	height:15vw;
+	top:1vw;
+	left:7vw;
 }
 #key{
-	height:5vh;
+	height:5vw;
 	top:0;
 	left:20vw;
 	display:none;
 }
 #number5{
-	height:5vh;
-	top:10vh;
+	height:5vw;
+	top:10vw;
 	left:0vw;
 	display:none;
 }
