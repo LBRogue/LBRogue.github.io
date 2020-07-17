@@ -42,7 +42,8 @@ var gregorDialogues = [
 	'I\'m a traveling salesman.',
 	'That painting right there is my most precious item.',
 	'I have to sleep early, my train leaves at 5.',
-	'A glass of milk would be lovely.'
+	'A glass of milk would be lovely.',
+	'I\'d be sad if someone took my painting'
 ]
 var numberPuzzleCode = [
 	1,
