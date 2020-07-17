@@ -264,7 +264,7 @@ function tryCodes(){
 		unlock();
 	}
 	else{
-		writeDialogue("User", "It's still locked");
+		writeDialogue("Roxanne", "It's still locked");
 	}
 }
 function hotbarStore(item){
@@ -395,7 +395,7 @@ function itemClick(item){
 				arrangePuzzles();
 			}
 			else{
-				writeDialogue("User", "The missing number must be somewhere.");
+				writeDialogue("Roxanne", "The missing number must be somewhere.");
 			}
 		break;
 		case "cabinet":
@@ -416,10 +416,10 @@ function itemClick(item){
 				hotbarRemove("key");
 			}
 			else if (!keyStatus){
-				writeDialogue("User", "It's locked.");
+				writeDialogue("Roxanne", "It's locked.");
 			}
 			else{
-				writeDialogue("User", "It's still locked.");
+				writeDialogue("Roxanne", "It's still locked.");
 			}
 		break;
 		default:
