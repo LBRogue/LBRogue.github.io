@@ -20,7 +20,7 @@ var number5Missing = true;
 var gregorGoPainting = false;
 var cabinetOpen = false;
 var keyStatus = false;
-var slides = 3;
+var slides = 31;
 function start(){
 	console.log("yess");
 	var portraitDiv = document.getElementById("portraitDiv");
@@ -344,7 +344,7 @@ function switchLight(){
 //unfinished
 function unlock(){
 	console.log("unlocked.");
-	writeDialogue("Console", "Happy Birthday Roxanne!");
+	writeDialogue("Console", "Happy Birthday Roxanne! (Click on the thing)");
 	document.getElementById("numberPuzzle2").style.display = "none";
 	document.getElementById("safe").setAttribute("src","assets/img/safeOpen.png");
 	document.getElementById("surprise2").style.display = "block";
@@ -490,7 +490,7 @@ toTheLeft2 = function(){//magdagdag ng fcn para kay gregor transform
 toTheRight2 = function(){
 	if((!inProgress) && (!inDialogue)){
 	openDiv++;
-	if(openDiv==2){
+	if(openDiv==30){
 		document.getElementsByTagName("polygon")[1].style.display = "none";
 	}
 	else{

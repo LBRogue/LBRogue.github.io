@@ -180,13 +180,18 @@ svg{
 	z-index:4;
 	height:calc(14.55vw*9/16);
 	width:14.55vw;
-	top:24vw;
-	left:49.6vw;
+	top:31.7vw;
+	left:63.6vw;
 	display:none;
-	background-color:yellow;
+	background-image:url("../assets/img/Happy birthday, roxanne!!!!.jpg");
+	background-size: 100% 100%;
 }
 #surprise{
 	background-color:lightblue;
+}
+#surprise img{
+	width:90vw;
+	height:calc(90vw*9/16);
 }
 
 
