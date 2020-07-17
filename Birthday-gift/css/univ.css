@@ -32,14 +32,13 @@ h2{
 	left:5vw;
 	font-size:1.2vw;
 	opacity: 1;
-	background-color:#d66800;
+	background-color:beige;
 	display:block;
 }
 
 div{
 	width:90vw;
 	height:calc(90vw*9/16);
-	background-color:white;
 	display:none;
 	z-index:1;
 }
@@ -48,11 +47,11 @@ div{
 	background-size: 100% 100%;
 }
 #room2{
+	background-image: url("../assets/img/room2.png");
 	display:block;
-	background-color:gray;
 }
 #room3{
-	background-color:white;
+	background-image: url("../assets/img/room3.png");
 }
 #room4{
 	background-color:lightblue;
@@ -147,8 +146,8 @@ svg{
 }
 #numberPuzzle2 {
 	position:absolute;
-	top:19vw;
-	left:60vw;
+	top:26.6vw;
+	left:74vw;
 	display:block;
 	z-index:4;
 	background-color:rgb(74,74,74);
@@ -224,8 +223,8 @@ svg{
 }
 #milk{
 	height:10vw;
-	top:0;
-	left:0;
+	top:34vw;
+	left:82vw;
 }
 #code{
 	height:9vw;
@@ -237,7 +236,7 @@ svg{
 #cabinet{
 	height:20vw;
 	top:10vw;
-	left:25vw;
+	left:54vw;
 }
 #painting{
 	z-index:4;
@@ -248,18 +247,18 @@ svg{
 #key{
 	height:3vw;
 	top:19vw;
-	left:33.8vw;
+	left:62.8vw;
 	display:none;
 }
 #number5{
 	height:5vw;
 	top:17vw;
-	left:25.8vw;
+	left:54.8vw;
 	display:none;
 }
 #safe{
 	height:20vw;
-	top:15vw;
-	left:48vw;
+	top:22.7vw;
+	left:62vw;
 	display:block;
 }

@@ -395,14 +395,14 @@ function itemClick(item){
 				arrangePuzzles();
 			}
 			else{
-				writeDialogue("Roxanne", "The missing number must be somewhere.");
+				writeDialogue("Roxanne", "The missing piece must be somewhere.");
 			}
 		break;
 		case "cabinet":
 			var width1 = document.getElementById("cabinet").offsetWidth;
 			if (!cabinetOpen){
 			document.getElementById("cabinet").setAttribute("src", "assets/img/cabinetOpen.png");
-			document.getElementById("cabinet").style.left = divW*25/90 - width1*177/576 + "px";
+			document.getElementById("cabinet").style.left = divW*54/90 - width1*177/576 + "px";
 				cabinetOpen = true;
 				document.getElementById("number5").style.display = "block";
 			document.getElementById("key").style.display = "block";
