@@ -3,6 +3,7 @@ var rooms;
 var imgW;
 var divH;
 var divW;
+var gregorDialogue = 0;
 var noDialogues = 0;
 var vacantPos = 8;
 var inProgress = false;
@@ -43,7 +44,7 @@ var gregorDialogues = [
 	'That painting right there is my most precious item.',
 	'I have to sleep early, my train leaves at 5.',
 	'A glass of milk would be lovely.',
-	'I\'d be sad if someone took my painting'
+	'I\'d be sad if someone took my painting.'
 ]
 var numberPuzzleCode = [
 	1,
@@ -366,8 +367,12 @@ function itemClick(item){
 				hotbarRemove("milk");
 				writeDialogue("Gregor", "Wow! Thanks, milk is actually my favorite drink.");
 			}
-			else{
+			else if(gregorDialogue == gregorDialogues.length){
 				writeDialogue("Gregor", gregorDialogues[Math.floor(Math.random()*gregorDialogues.length)]);
+			}
+			else{
+				writeDialogue("Gregor", gregorDialogues[gregorDialogue]);
+				gregorDialogue++;
 			}
 		break;
 		case "gregorMeta":
