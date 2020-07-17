@@ -30,6 +30,7 @@ h2{
 	z-index:9;
 	top:calc(90vw*7/16);
 	left:5vw;
+	font-size:1.2vw;
 	opacity: 1;
 	background-color:#d66800;
 	display:block;
@@ -62,6 +63,8 @@ div{
 	top:0;
 	left:5vw;
 	z-index:3;
+	background-image:url("../assets/img/intro2.png");
+	background-size: 100% auto;
 }
 #hotbar{
 	z-index:6;
@@ -182,6 +185,9 @@ svg{
 	left:49.6vw;
 	display:none;
 	background-color:yellow;
+}
+#surprise{
+	background-color:lightblue;
 }
 
 

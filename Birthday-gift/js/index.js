@@ -19,6 +19,7 @@ var number5Missing = true;
 var gregorGoPainting = false;
 var cabinetOpen = false;
 var keyStatus = false;
+var slides = 3;
 function start(){
 	console.log("yess");
 	var portraitDiv = document.getElementById("portraitDiv");
@@ -28,13 +29,20 @@ function start(){
 	}
 }
 var firstDialogues = [
-	'Hello, there',
-	'part2 click to go game '
+	'Hellooo, so yun nga game to na maikli lang',
+	'assuming na walang bugs and it -works- ',
+	'so quick tutorial, click mo lang item',
+	'posibleng may interaction or mapunta sa hotbar mo',
+	'click mo yung item sa hotbar and another item sa screen',
+	'pwede rin na magsalita yung tao click mo lang',
+	'and that\'s it. Click to proceed.'
+	
 ]
 var gregorDialogues = [
 	'I\'m a traveling salesman.',
-	'That painting right there is beautiful.',
-	'I have to sleep early, my train leaves at 5.'
+	'That painting right there is my most precious item.',
+	'I have to sleep early, my train leaves at 5.',
+	'A glass of milk would be lovely.'
 ]
 var numberPuzzleCode = [
 	1,
@@ -53,7 +61,7 @@ function intro(){
 		inDialogue = false;
 	}
 	else if(!inProgress){
-	writeDialogue("console", firstDialogues[noDialogues]);
+	writeDialogue("Console", firstDialogues[noDialogues]);
 	noDialogues++
 	}
 	
@@ -389,9 +397,10 @@ function itemClick(item){
 			document.getElementById("cabinet").setAttribute("src", "assets/img/cabinetOpen.png");
 			document.getElementById("cabinet").style.left = divW*25/90 - width1*177/576 + "px";
 				cabinetOpen = true;
-			}
-			document.getElementById("number5").style.display = "block";
+				document.getElementById("number5").style.display = "block";
 			document.getElementById("key").style.display = "block";
+			}
+			
 		break;
 		case "safe":
 			if (itemInHand == "key"){
@@ -439,5 +448,49 @@ function clickDialogue(){
 	if ((!inProgress) && (inDialogue)){
 		document.getElementById("dialogueDiv").style.display = "none";
 		inDialogue = false;
+	}
+}
+//unfinished 
+function openSurprise(){
+	fadeOut("room2");
+	document.getElementById("hotbar").style.display = "none";
+	document.getElementById("showHotbar").style.display = "none";
+	document.getElementById("surprise").style.display = "block";
+	document.getElementsByTagName("polygon")[0].setAttribute("onclick", "toTheLeft2()");
+	document.getElementsByTagName("polygon")[1].setAttribute("onclick", "toTheRight2()");
+	toTheLeft2();
+}
+
+toTheLeft2 = function(){//magdagdag ng fcn para kay gregor transform
+	if((!inProgress) && (!inDialogue)){
+			openDiv--;
+	if(openDiv==0){
+		document.getElementsByTagName("polygon")[0].style.display = "none";
+	}
+	else{
+		document.getElementsByTagName("polygon")[1].style.display = "block";
+	}
+	for(let i = 0; i < slides ;i++){
+		document.getElementById("surprise").children[i].style.display = "none";
+	}
+	document.getElementById("surprise").children[openDiv].style.display = "block";
+		
+
+	}
+}
+toTheRight2 = function(){
+	if((!inProgress) && (!inDialogue)){
+	openDiv++;
+	if(openDiv==2){
+		document.getElementsByTagName("polygon")[1].style.display = "none";
+	}
+	else{
+		document.getElementsByTagName("polygon")[0].style.display = "block";
+	}
+	for(let i = 0; i < slides;i++){
+		document.getElementById("surprise").children[i].style.display = "none";
+	}
+	document.getElementById("surprise").children[openDiv].style.display = "block";
+		
 	}
 }

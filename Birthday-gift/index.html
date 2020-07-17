@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<link rel="icon" href="assets/img/testing.png" />
+		<link rel="icon" href="assets/img/icon.png" />
 	
 		<title> ??? </title>
 	
@@ -41,12 +41,6 @@
 		<img src = "assets/img/painting.png" id = "painting" onclick = "itemClick('painting')">
 		</div>
 		<div id = "room2">
-		<img src = "assets/img/cabinetClosed.png" id = "cabinet" onclick = "itemClick('cabinet')">
-		<img src = "assets/img/milk.png" id = "milk" onclick = "hotbarStore('milk')">
-		<img src = "assets/img/key.png" id = "key" onclick = "hotbarStore('key')">
-		<img src = "assets/img/number5.png" id = "number5" onclick = "hotbarStore('number5')">
-		</div>
-		<div id = "room3">
 		<img src = "assets/img/safeClosed.png" id = "safe" onclick = "itemClick('safe')">
 		<div id = "numberPuzzle">
 		<div id = "1" onclick = "move(1)">1</div>
@@ -68,11 +62,27 @@
 		<div></div>
 		<div></div>
 		</div>
-		<div id = "surprise2">
+		<div id = "surprise2" onclick = "openSurprise()">
 		</div>
 		<div id = "escapeBtn" onclick = "outNumberPuzzle()">X
 		</div>
 		
+		</div>
+		<div id = "room3">
+		<img src = "assets/img/cabinetClosed.png" id = "cabinet" onclick = "itemClick('cabinet')">
+		<img src = "assets/img/milk.png" id = "milk" onclick = "hotbarStore('milk')">
+		<img src = "assets/img/key.png" id = "key" onclick = "hotbarStore('key')">
+		<img src = "assets/img/number5.png" id = "number5" onclick = "hotbarStore('number5')">
+		</div>
+		<div id = "surprise">
+			<img src = "assets/img/1.png">
+			<img src = "assets/img/2.png">
+			<img src = "assets/img/3.png">
+			<img src = "assets/img/4.png">
+			<img src = "assets/img/5.png">
+			<img src = "assets/img/6.png">
+			<img src = "assets/img/7.png">
+			<img src = "assets/img/8.png">
 		</div>
 		
 		<svg class = "arrowKeys" id = "leftArrow">
@@ -97,7 +107,7 @@
 		<div id = "dialogueDiv" onclick = "intro()">
 		<h2 id = "name">
 		</h2>
-		<h2 id = "dialogue"> dialogue blah blah
+		<h2 id = "dialogue"> Click to proceed.
 		</h2>
 		</div>
 		<script src="js/univ.js"></script>
