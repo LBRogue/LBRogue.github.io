@@ -70,6 +70,9 @@ var products = [
 var trList = [];
 var total;
 var totalCount = 0;
+var totalCount3k;
+var totalCount15k;
+var totalCountRetail;
 function product(productName, reseller3kPrice, reseller15kPrice, retailPrice){
 	var temp = {};
 	temp.productName = productName;
@@ -193,9 +196,21 @@ function createTable(){
 	var textNode1 = document.createTextNode("Total");
 	tdNode1.appendChild(textNode1);
 	node.appendChild(tdNode1);
-	node.appendChild(document.createElement("TD"));
-	node.appendChild(document.createElement("TD"));
-	node.appendChild(document.createElement("TD"));
+	var tdNode2 = document.createElement("TD");
+	var textNode2 = document.createTextNode("0");
+	tdNode2.appendChild(textNode2);
+	var tdNode3 = document.createElement("TD");
+	var textNode3 = document.createTextNode("0");
+	tdNode3.appendChild(textNode3);
+	var tdNode4 = document.createElement("TD");
+	var textNode4 = document.createTextNode("0");
+	tdNode4.appendChild(textNode4);
+	totalCountRetail = tdNode4;
+	totalCount15k = tdNode3;
+	totalCount3k = tdNode2;
+	node.appendChild(tdNode2);
+	node.appendChild(tdNode3);
+	node.appendChild(tdNode4);
 	node.appendChild(document.createElement("TD"));
 	var textNode = document.createTextNode("0");
 	tdNode.appendChild(textNode);
@@ -210,24 +225,49 @@ function addQuantity(i){
 	priceSet();
 }
 function priceSet(){
-	if(totalCount < 1500){
+	document.getElementById("id-table").children[0].children[0].children[3].style.backgroundColor = "white";
+	
+	document.getElementById("id-table").children[0].children[0].children[2].style.backgroundColor = "white";
+	
+	document.getElementById("id-table").children[0].children[0].children[1].style.backgroundColor = "white";
+	var tempTotal = 0;
+	var total3k = 0;
+	var total15k = 0;
+	var totalRetail = 0;
+	for(let i = 0; i < trList.length; i++){
+		tempTotal += parseInt(trList[i].children[5].innerHTML);
+	}
+	for(let i = 0; i < trList.length; i++){
+		total3k += parseInt(trList[i].children[4].innerHTML)*trList[i].children[1].innerHTML;
+	}
+	for(let i = 0; i < trList.length; i++){
+		total15k += parseInt(trList[i].children[4].innerHTML)*trList[i].children[2].innerHTML;
+	}
+	for(let i = 0; i < trList.length; i++){
+		totalRetail += parseInt(trList[i].children[4].innerHTML)*trList[i].children[3].innerHTML;
+	}
+	if(total15k < 1500){
+		document.getElementById("id-table").children[0].children[0].children[3].style.backgroundColor = "lightblue";
 		priceNumber = 3;
 	}
-	else if(totalCount < 3000){
+	else if(total3k < 3000){
+		document.getElementById("id-table").children[0].children[0].children[2].style.backgroundColor = "lightblue";
 		priceNumber = 2;
 	}
 	else{
+		document.getElementById("id-table").children[0].children[0].children[1].style.backgroundColor = "lightblue";
 		priceNumber = 1;
 	}
 	for(let i = 0; i < trList.length; i++){
 		trList[i].children[5].innerHTML = trList[i].children[4].innerHTML * trList[i].children[priceNumber].innerHTML;
 	}
-	var tempTotal = 0;
-	for(let i = 0; i < trList.length; i++){
-		tempTotal += parseInt(trList[i].children[5].innerHTML);
-	}
+	
 	total.innerHTML = tempTotal;
+	totalCount15k.innerHTML = total15k;
+	totalCount3k.innerHTML = total3k;
+	totalCountRetail.innerHTML = totalRetail;
 }
+/*
 var counter = 0;
 function add(){
 	var i = document.getElementsByTagName("input")[0];
@@ -251,4 +291,34 @@ function add(){
 		break;
 	}
 	counter++;
+}
+*/
+function manualPrice(num){
+	document.getElementById("id-table").children[0].children[0].children[3].style.backgroundColor = "white";
+	
+	document.getElementById("id-table").children[0].children[0].children[2].style.backgroundColor = "white";
+	
+	document.getElementById("id-table").children[0].children[0].children[1].style.backgroundColor = "white";
+	switch(num){
+		case 0:
+			document.getElementById("id-table").children[0].children[0].children[3].style.backgroundColor = "lightblue";
+			priceNumber = 3;
+		break;
+		case 1500:
+			document.getElementById("id-table").children[0].children[0].children[2].style.backgroundColor = "lightblue";
+			priceNumber = 2;
+		break;
+		case 3000:
+			document.getElementById("id-table").children[0].children[0].children[1].style.backgroundColor = "lightblue";
+			priceNumber = 1;
+		break;
+	}
+	for(let i = 0; i < trList.length; i++){
+		trList[i].children[5].innerHTML = trList[i].children[4].innerHTML * trList[i].children[priceNumber].innerHTML;
+	}
+	var tempTotal = 0;
+	for(let i = 0; i < trList.length; i++){
+		tempTotal += parseInt(trList[i].children[5].innerHTML);
+	}
+	total.innerHTML = tempTotal;
 }
