@@ -195,6 +195,7 @@ function createTable(){
 		var textNode5 = document.createTextNode(products[i].quantity);
 		tdNode5.appendChild(textNode5);
 		var tdNode6 = document.createElement("TD");
+		tdNode6.setAttribute("onclick","subtractQuantity("+i+")");
 		var textNode6 = document.createTextNode(products[i].unitTotal);
 		tdNode6.appendChild(textNode6);
 		node.appendChild(tdNode1);
@@ -238,6 +239,12 @@ function addQuantity(i){
 	trList[i].children[4].innerHTML = parseInt(trList[i].children[4].innerHTML) + 1;
 	trList[i].children[5].innerHTML = trList[i].children[4].innerHTML * trList[i].children[priceNumber].innerHTML;
 	totalCount += parseInt(trList[i].children[3].innerHTML);
+	priceSet();
+}
+function subtractQuantity(i){
+	trList[i].children[4].innerHTML = parseInt(trList[i].children[4].innerHTML) - 1;
+	trList[i].children[5].innerHTML = trList[i].children[4].innerHTML * trList[i].children[priceNumber].innerHTML;
+	totalCount -= parseInt(trList[i].children[3].innerHTML);
 	priceSet();
 }
 function priceSet(){
