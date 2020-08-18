@@ -17,11 +17,7 @@ var unitTotal  = [
 	
 ];
 **/
-document.getElementsByTagName("input")[0].addEventListener("keydown", function(event){
-	if(event.keyCode === 13){
-		add();
-	}
-});
+
 var priceNumber = 3;
 var products = [
 	product("EVERYDAY CHICKEN 800 - 899g", 130, 132, 135),
