@@ -9,7 +9,7 @@
 			border-collapse: collapse;
 		}
 		#id-table td{
-			min-width: 8vw;
+			min-width: 10vw;
 			height:5vh;
 			max-width: 40vw; 
 			min-height: 3.5vh;
@@ -23,6 +23,7 @@
 	</head>
 	<body>
 		<div id = "id-mainDiv">
+			<button onclick = "toggleHide()"> Hide </button>
 			<table id = "id-table">
 				<tr>
 				<td>
@@ -31,6 +32,8 @@
 				<td onclick = "manualPrice(3000)">3000 up</td>
 				<td onclick = "manualPrice(1500)">1500 up</td>
 				<td onclick = "manualPrice(0)">RETAIL</td>
+				<td>Quantity</td>
+				<td>Total</td>
 				</tr>
 			</table>
 		</div>
@@ -344,6 +347,39 @@ function manualPrice(num){
 		tempTotal += parseInt(trList[i].children[5].innerHTML);
 	}
 	total.innerHTML = tempTotal;
+}
+var hidden = false;
+function toggleHide(){
+	if(!hidden){
+		document.getElementsByTagName("tr")[0].children[1].style.display = "none";
+		document.getElementsByTagName("tr")[0].children[2].style.display = "none";
+		document.getElementsByTagName("tr")[0].children[3].style.display = "none";
+		document.getElementsByTagName("tr")[document.getElementsByTagName("tr").length-1].children[1].style.display = "none";
+		document.getElementsByTagName("tr")[document.getElementsByTagName("tr").length-1].children[2].style.display = "none";
+		document.getElementsByTagName("tr")[document.getElementsByTagName("tr").length-1].children[3].style.display = "none";
+	for(let i = 0; i < trList.length; i++){
+		trList[i].children[1].style.display = "none";
+		trList[i].children[2].style.display = "none";
+		trList[i].children[3].style.display = "none";
+	}
+	hidden = true;
+	}
+	else{
+		document.getElementsByTagName("tr")[0].children[1].style.display = "inline-block";
+		document.getElementsByTagName("tr")[0].children[2].style.display = "inline-block";
+		document.getElementsByTagName("tr")[0].children[3].style.display = "inline-block";
+		document.getElementsByTagName("tr")[document.getElementsByTagName("tr").length-1].children[1].style.display = "inline-block";
+		document.getElementsByTagName("tr")[document.getElementsByTagName("tr").length-1].children[2].style.display = "inline-block";
+		document.getElementsByTagName("tr")[document.getElementsByTagName("tr").length-1].children[3].style.display = "inline-block";
+	for(let i = 0; i < trList.length; i++){
+		trList[i].children[1].style.display = "inline-block";
+		trList[i].children[2].style.display = "inline-block";
+		trList[i].children[3].style.display = "inline-block";
+	}	
+	hidden = false;
+	}
+	
+	
 }
 	</script>
 		
