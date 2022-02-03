@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	
+		<title> Wordle Solver </title>
+		<style>
+		div{
+			height:5vh;
+			width: 5vh;
+			background-color:gray;
+		}
+		.gray{
+			background-color:gray;
+		}
+		.yellow{
+			background-color:yellow;
+		}
+		.green{
+			background-color:green;
+		}
+		</style>
+		<meta charset="UTF-8" />
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+		<!-- CSS Link -->
+		
+		<!-- JS Scripts (start) -->
+	</head>
+	
+	<body>
+		<input id="guessvalue">
+<p id="guess">Guess 1:</p>
+<button type="button" onclick="submit()">Submit</button>
+</form>
+<table>
+<td><div id="0" onclick="changeColor(0)"></div></td>
+<td><div id="1" onclick="changeColor(1)"></div></td>
+<td><div id="2" onclick="changeColor(2)"></div></td>
+<td><div id="3" onclick="changeColor(3)"></div></td>
+<td><div id="4" onclick="changeColor(4)"></div></td>
+</table>
+Possible answers:
+<p id="pguess"></p>
+		<!-- JS Scripts (end) -->
+		<script src="js/index.js"></script>
+	</body>
+</html>
+
