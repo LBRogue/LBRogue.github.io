@@ -231,4 +231,5 @@ function manualOutput(right, attempt){
 		tempStr+=tempRes[i];
 	}
 	return tempStr;
+	
 }
