@@ -30,7 +30,9 @@ function solver(start, end){
 			var dictCopy=[...dict];
 			var curList3Copy=[...curList3];
 			var tmpRes = manualOutput(curList3Copy[j],dictCopy[i]);
-			counter+=inputAttempt(curList3Copy, dictCopy[i], tmpRes, [...green1], [...yellow1]).length;
+			var tmpgreen = [...green1]
+			var tmpyellow = [...yellow1]
+			counter+=inputAttempt(curList3Copy, dictCopy[i], tmpRes, tmpgreen, tmpyellow).length;
 		}
 		if (((counter < minimum)||((counter ==minimum)&&(curList3.indexOf(dict[i])!=-1)))&&(counter>0)){
 			minimum = counter;
