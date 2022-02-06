@@ -19,6 +19,8 @@ function solver(start, end){
 	if (end>dict.length){
 		end=dict.length
 	}
+	minimum = 9007199254740991;
+	minIdx = 0;
 	console.log(curList3);
 	for (let i=start; i<end; i++){
 		console.log("word: "+dict[i]+"; minimum: "+minimum +"; idx: " + minIdx);
@@ -29,7 +31,7 @@ function solver(start, end){
 			var tmpRes = manualOutput(curList3Copy[j],dictCopy[i]);
 			counter+=inputAttempt(curList3Copy, dictCopy[i], tmpRes, [...green1], [...yellow1]).length;
 		}
-		if (counter < minimum){
+		if (((counter < minimum)||((counter ==minimum)&&(curList3.indexOf(dict[i])!=-1)))&&(counter>0)){
 			minimum = counter;
 			minIdx = i
 		}
