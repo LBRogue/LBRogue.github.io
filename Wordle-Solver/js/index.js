@@ -9,24 +9,25 @@ var attempts = 6;
 var word_length = 5;
 var att = "aaaaa";
 var res = "?????";
-var green = [];
+var green1 = [];
+var yellow1 = [];
 var guessNo = 1;
-
 var minimum = 9007199254740991;
+var minIdx = 0;
 // running 0 to 100
 function solver(start, end){
 	if (end>dict.length){
 		end=dict.length
 	}
-	var minIdx = 0;
+	console.log(curList3);
 	for (let i=start; i<end; i++){
 		console.log("word: "+dict[i]+"; minimum: "+minimum +"; idx: " + minIdx);
 		var counter = 0;
 		for (let j=0; j<curList3.length; j++){
 			var dictCopy=[...dict];
 			var curList3Copy=[...curList3];
-			var tmpRes = manualOutput(curList3[j],dict[i]);
-			counter+=inputAttempt(curList3Copy, dictCopy[i], tmpRes).length;
+			var tmpRes = manualOutput(curList3Copy[j],dictCopy[i]);
+			counter+=inputAttempt(curList3Copy, dictCopy[i], tmpRes, [...green1], [...yellow1]).length;
 		}
 		if (counter < minimum){
 			minimum = counter;
@@ -51,17 +52,19 @@ function submit(){
 	temp2 = document.getElementById("guessvalue").value
 	document.getElementById("guessvalue").value = "";
 	//console.log("inputting "+temp2+temp);
-	var newList = inputAttempt(curList3,temp2,temp);
+	var newList = inputAttempt(curList3,temp2,temp, green1, yellow1);
 	updateList(newList);
 	console.log(newList.length)
 }
-function inputAttempt(curList, attempt, result){
+
+function inputAttempt(curList, attempt, result, green, yellow){
 	att = attempt;
 	res = result;
 	for (let i = 0; i<5; i++){
 		if (res.charAt(i) == "g"){
 			green.push(att.charAt(i));
 			for (let j=0; j<curList.length; j++){
+				//console.log("remove "+curList[j]+"res"+result);
 				//console.log(curList[j]);
 				//console.log(j);
 				//console.log(curList.length);
@@ -74,12 +77,45 @@ function inputAttempt(curList, attempt, result){
 		}
 	}
 	for (let i = 0; i<5; i++){
-		if (res.charAt(i) == "?") {//typing evite and first e is gray removes other e's lol
+		if (res.charAt(i) == "y"){
+			for (let j=0; j<curList.length; j++){
+				if (curList[j].charAt(i) == att.charAt(i)){
+					//console.log("remove "+curList[j]);
+					yellow.push(att.charAt(i));
+					curList.splice(j,1);
+					j--;
+				}
+				else{
+					var inWord=false;
+					for(let a=0;a<5;a++){
+						if (i!=a){
+							if (curList[j][a] == att.charAt(i)){
+								inWord=true;
+							}
+						}
+					}
+					if (!inWord){
+						//console.log("remove "+curList[j]);
+						yellow.push(att.charAt(i));
+						curList.splice(j,1);
+						j--;
+					}
+				}
+			}
+		}	
+		else if (res.charAt(i) == "?") {//typing evite and first e is gray removes other e's lol
 			var ltr = att.charAt(i);
 			tmp5 = false;
 			for (let a=0;a<green.length;a++){
 				//console.log(ltr+green[a]);
 				if (ltr == green[a]){
+					tmp5 = true;
+					//console.log("yes");
+				}
+			}
+			for (let a=0;a<yellow.length;a++){
+				//console.log(ltr+green[a]);
+				if (ltr == yellow[a]){
 					tmp5 = true;
 					//console.log("yes");
 				}
@@ -96,29 +132,6 @@ function inputAttempt(curList, attempt, result){
 						curList.splice(j,1);
 						j--;
 						break;
-					}
-				}
-			}
-		}
-		
-		else if (res.charAt(i) == "y"){
-			for (let j=0; j<curList.length; j++){
-				if (curList[j].charAt(i) == att.charAt(i)){
-					curList.splice(j,1);
-					j--;
-				}
-				else{
-					var inWord=false;
-					for(let a=0;a<5;a++){
-						if (i!=a){
-							if (curList[j][a] == att.charAt(i)){
-								inWord=true;
-							}
-						}
-					}
-					if (!inWord){
-						curList.splice(j,1);
-						j--;
 					}
 				}
 			}
@@ -165,6 +178,7 @@ function updateColors(){
 }
 function manualOutput(right, attempt){
 	var tempRes = ["?","?","?","?","?"];
+	var storage = []
 	for (let i=0;i<5;i++){
 		if (right.charAt(i)==attempt.charAt(i)){
 			tempRes[i] = "g";
@@ -175,11 +189,24 @@ function manualOutput(right, attempt){
 			continue;
 		}
 		for (let j=0;j<5;j++){
+			var dbl = false;
 			if (tempRes[i]=="g"){
 				continue;
 			}
 			if (right.charAt(i)==attempt.charAt(j)){
-				tempRes[j]="y";
+				for (let a=0;a<storage.length;a++){
+					if (i==storage[a][0]){
+						dbl = true;
+					}
+				}
+				if (!dbl){
+					if(tempRes[j] !="y"){
+						var tempStrg = [i,j]
+						storage.push(tempStrg);
+						tempRes[j]="y";//error when there are 2 letters on the thing like serve and chess it displays yy??y even tho it shouldnt
+					}
+				}
+
 			}
 		}
 	}
