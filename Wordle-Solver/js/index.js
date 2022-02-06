@@ -32,6 +32,7 @@ function solver(start, end){
 			var tmpRes = manualOutput(curList3Copy[j],dictCopy[i]);
 			var tmpgreen = [...green1]
 			var tmpyellow = [...yellow1]
+			
 			counter+=inputAttempt(curList3Copy, dictCopy[i], tmpRes, tmpgreen, tmpyellow).length;
 		}
 		if (((counter < minimum)||((counter ==minimum)&&(curList3.indexOf(dict[i])!=-1)))&&(counter>0)){
