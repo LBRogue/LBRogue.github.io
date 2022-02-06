@@ -61,10 +61,16 @@ function submit(){
 	temp2 = document.getElementById("guessvalue").value
 	document.getElementById("guessvalue").value = "";
 	//console.log("inputting "+temp2+temp);
-	var newList = inputAttempt(curList3,temp2,temp, green1, yellow1);
-	updateList(newList);
-	console.log(newList.length)
-	solver(0,dict.length);
+	if (temp2.length==5){
+		var newList = inputAttempt(curList3,temp2,temp, green1, yellow1);
+		updateList(newList);
+		console.log(newList.length)
+		solver(0,dict.length);
+	}
+	else{
+		document.getElementById("bguess").innerHTML = "need 5 letter word, fcn cancelled";
+		console.log("need 5 letter word, fcn cancelled");
+	}
 }
 
 function inputAttempt(curList, attempt, result, green, yellow){
