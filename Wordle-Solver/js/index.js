@@ -101,6 +101,7 @@ function inputAttempt(curList, attempt, result, green, yellow){
 					curList.splice(j,1);
 					j--;
 				}
+				
 				else{
 					var inWord=false;
 					for(let a=0;a<5;a++){
