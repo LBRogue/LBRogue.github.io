@@ -107,6 +107,7 @@ function inputAttempt(curList, attempt, result, green, yellow){
 						if (i!=a){
 							if (curList[j][a] == att.charAt(i)){
 								inWord=true;
+								yellow.push(att.charAt(i));
 							}
 						}
 					}
