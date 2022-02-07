@@ -65,7 +65,7 @@ function submit(){
 		var newList = inputAttempt(curList3,temp2,temp, green1, yellow1);
 		updateList(newList);
 		console.log(newList.length)
-		solver(0,dict.length);
+		console.log(solver(0,dict.length));
 	}
 	else{
 		document.getElementById("bguess").innerHTML = "need 5 letter word, fcn cancelled";
