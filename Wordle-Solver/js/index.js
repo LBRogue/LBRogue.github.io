@@ -42,6 +42,7 @@ function solver(start, end){
 			//console.log("yes");
 		}
 	}
+	document.getElementById("guessvalue").value = dictCopy[minIdx];
 	document.getElementById("bguess").innerHTML = dictCopy[minIdx];
 	return dict[minIdx];
 }
