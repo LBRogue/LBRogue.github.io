@@ -30,6 +30,7 @@ function findWord(j,result2){
 	return createWord(words[j],result2);
 }
 function start(){
+	
 	for (let a=0;a<20;a++){
 		createSquares()
 	}
