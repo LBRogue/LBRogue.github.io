@@ -313,3 +313,59 @@ function manualOutput(right, attempt){
 	}
 	return tempStr;
 }
+function wrdl(word){
+	var result = ""
+	for (let i=0;i<word.length;i++){
+		var ltr = word.charAt(i)
+		var idx = alphabet.indexOf(ltr)
+		if (i%6 == 0){
+			result += alphabet[(22+idx)%26]
+		}
+		else if (i%6 == 1){
+			result += alphabet[(14+idx)%26]
+		}
+		else if (i%6 == 2){
+			result += alphabet[(17+idx)%26]
+		}
+		else if (i%6 == 3){
+			result += alphabet[(3+idx)%26]
+		}
+		else if (i%6 == 4){
+			result += alphabet[(11+idx)%26]
+		}
+		else if (i%6 == 5){
+			result += alphabet[(4+idx)%26]
+		}
+		
+	}
+	return result;
+	
+}
+function rwrdl(word){
+	var result = ""
+	for (let i=0;i<word.length;i++){
+		var ltr = word.charAt(i)
+		var idx = alphabet.indexOf(ltr)
+		if (i%6 == 0){
+			result += alphabet[(26-22+idx)%26]
+		}
+		else if (i%6 == 1){
+			result += alphabet[(26-14+idx)%26]
+		}
+		else if (i%6 == 2){
+			result += alphabet[(26-17+idx)%26]
+		}
+		else if (i%6 == 3){
+			result += alphabet[(26-3+idx)%26]
+		}
+		else if (i%6 == 4){
+			result += alphabet[(26-11+idx)%26]
+		}
+		else if (i%6 == 5){
+			result += alphabet[(26-4+idx)%26]
+		}
+		
+	}
+	return result;
+	
+}
