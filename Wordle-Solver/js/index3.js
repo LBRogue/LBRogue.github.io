@@ -60,6 +60,24 @@ function start(){
 			clearInterval(id);
 			inProgress = false;
 			var id2 = setInterval(frame2,5);
+			function frame2(){
+				if (counter == 1170){
+				clearInterval(id2);
+				inProgress = false;
+			}
+			else{
+				let tile1=document.getElementsByClassName('div')[counter]
+				tile1.innerHTML = wordStr.charAt(counter)
+				var instanceNum = Math.floor(counter/30)
+				var wordNum = Math.floor((counter%30)/5);
+				var squareNum = counter%5;
+				var ptrn = getPattern2(instanceNum);
+				var ptrn2 = ptrn[wordNum];
+				var color1 = ptrn2.charAt(squareNum);
+				flipTile(counter, color1);
+				counter++;
+		}
+	}
 		}
 		else{
 			let tile1=document.getElementsByClassName('div')[counter]
@@ -74,24 +92,7 @@ function start(){
 			counter++;
 		}
 	}
-	function frame2(){
-		if (counter == 1170){
-			clearInterval(id2);
-			inProgress = false;
-		}
-		else{
-			let tile1=document.getElementsByClassName('div')[counter]
-			tile1.innerHTML = wordStr.charAt(counter)
-			var instanceNum = Math.floor(counter/30)
-			var wordNum = Math.floor((counter%30)/5);
-			var squareNum = counter%5;
-			var ptrn = getPattern2(instanceNum);
-			var ptrn2 = ptrn[wordNum];
-			var color1 = ptrn2.charAt(squareNum);
-			flipTile(counter, color1);
-			counter++;
-		}
-	}
+	
 	
 }
 const flipTile = (tileNum, state) => {
