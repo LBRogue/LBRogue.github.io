@@ -1,0 +1,183 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+	background-color:black;
+}
+
+#container {
+  display: flex;
+  background-color: black;
+  height: 100%;
+  align-items: center;
+  flex-direction: column;
+}
+
+#game {
+  width: 100%;
+  max-width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  border-bottom: 1px solid rgb(58, 58, 60);
+}
+
+.title {
+  color: gainsboro;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0.4rem 0 0.4rem 0;
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+#board-container {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-grow: 1;
+  overflow: auto;
+}
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  grid-gap: 3px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#picture{
+  position:absolute;
+  top:200px;
+  left:(100vw-996px)/2;
+	width:996px;
+	height:561px;
+	background-color: hsl(0, 0%, 35%);
+}
+
+#board2 {
+position:absolute;
+top:775px;
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  grid-gap: 3px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.picture{
+	background-image:url("../v3.png");
+	background-size:996px 561px;
+}
+.instance{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 2px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.square {
+  border: 2px solid rgb(58, 58, 60);
+  min-width: .7vw;
+  max-width: .7vw;
+  min-height: .7vw;
+  max-height: .7vw;
+  font-size: 7px;
+  font-weight: bold;
+  color: gainsboro;
+  text-transform: uppercase;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#keyboard-container {
+  height: 200px;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto 8px;
+  touch-action: manipulation;
+}
+
+.keyboard-row button {
+  font-family: inherit;
+  font-weight: bold;
+  border: 0;
+  padding: 0;
+  height: 58px;
+  cursor: pointer;
+  background-color: rgb(129, 131, 132);
+  color: rgb(215, 218, 220);
+  flex-grow: 1;
+  text-transform: uppercase;
+  margin-right: 6px;
+  border-radius: 4px;
+  user-select: none;
+}
+
+.keyboard-row button.wide-button {
+  flex-grow: 1.5;
+}
+
+.spacer-half {
+  flex-grow: 0.5;
+}
+
+@keyframes flip-in {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(-90deg);
+  }
+}
+
+@keyframes flip-out {
+  from {
+    transform: rotateX(-90deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
+}
+
+.flip-in {
+  animation: flip-in 250ms;
+  animation-fill-mode: forwards;
+}
+
+.flip-out {
+  animation: flip-out 250ms;
+  animation-fill-mode: forwards;
+}
+
+.g {
+  background-color: hsl(120, 100%, 28%);
+  border-color: hsl(120, 100%, 28%);
+}
+
+.y {
+  background-color: hsl(49, 69%, 47%);
+  border-color: hsl(49, 69%, 47%);
+}
+
+.r {
+  background-color: hsl(0, 0%, 35%);
+  border-color: hsl(0, 0%, 35%);
+}
