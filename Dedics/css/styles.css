@@ -3,6 +3,15 @@ body{
 	margin:0;
 	overflow:hidden;
 	font-size:100%;
+	size:100%;
+}
+div{
+	overflow:hidden;
+}
+*{
+	overflow:hidden;
+	overflow-x:hidden;
+	overflow-y:hidden;
 }
 h1{
 	font-family: "Lucida Handwriting";
