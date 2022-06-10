@@ -7,7 +7,46 @@ function start(){
 }
 var codeList=[
 "ABCDEF",
-"EZFYPY"
+"EZFYPY",
+"JRCEIW",
+"WSOYQJ",
+"FQZMBO",
+"NUEPJL",
+"SCBMRT",
+"MIKTYR",
+"AVKWJY",
+"KBHCLI",
+"HNYHKV",
+"ZNEFHJ",
+"ZONAWQ",
+"VRPGUA",
+"IQKGNF",
+"WEMKKE",
+"LZDQXI",
+"ELONRE",
+"LTJNWH",
+"CZBWOW",
+"SNZBGL",
+"WEWDGC",
+"LYIKLY",
+"WEKKAN",
+"OJLWAM",
+"ITAEHR",
+"HENTTT",
+"VANOTA",
+"MACBHK",
+"ILTSNJ",
+"KEJSKA",
+"ARQVDT",
+"JBKFXC",
+"CZUNWP",
+"IGXNUN",
+"LSTCJF",
+"UASBWM",
+"KEQVIQ",
+"WPWOMX",
+"TVXUGM",
+"MKSGHR"
 ]
 var nameList=[
 "person",
@@ -29,7 +68,7 @@ function writeName(idx){
 	var id2 = setInterval(frame,30);
 	function frame(){
 			if(counter2 == name.length){
-				clearInterval(id);
+				clearInterval(id2);
 				inProgress = false;
 			}
 			else{
