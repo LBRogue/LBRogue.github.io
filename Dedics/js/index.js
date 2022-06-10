@@ -1,5 +1,5 @@
 function start(){
-	let code = prompt("Please enter your code:");
+	let code = prompt("Please enter your code (btw try to use landscape as much as possible hehe portrait orientation still buggy):");
 	let idx = getIdx(code)
 	writeName(idx);
 	getPics(idx);
