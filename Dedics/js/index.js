@@ -53,7 +53,7 @@ var nameList=[
 "Veronica"
 ]
 var picsList=[
-"12378",
+"12345678",
 "1458"
 ]
 var dedicsList=[
