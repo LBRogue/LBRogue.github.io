@@ -11,19 +11,6 @@ function createSquares() {
     }
 	gameBoard.appendChild(div1)
   }
-function createSquares2() {
-    const gameBoard = document.getElementById("board2");
-	let div1 = document.createElement("div");
-	div1.classList.add("instance");
-    for (let index = 0; index < 30; index++) {
-      let square = document.createElement("div");
-      square.classList.add("square");
-	  square.classList.add("div");
-      square.classList.add("animate__animated");
-      div1.appendChild(square);
-    }
-	gameBoard.appendChild(div1)
-  }
 var words = [
 'hello',
 'youre',
@@ -32,10 +19,6 @@ var words = [
 ]
 function getPattern(idx){
 	var idx2 = tList.indexOf(message.charAt(idx));
-	return cList[idx2]
-}
-function getPattern2(idx){
-	var idx2 = tList.indexOf(message2.charAt(idx));
 	return cList[idx2]
 }
 function findWord(j,result2){
@@ -47,41 +30,18 @@ function findWord(j,result2){
 	return createWord(words[j],result2);
 }
 function start(){
-	for (let a=0;a<13;a++){
+	
+	for (let a=0;a<20;a++){
 		createSquares()
-		createSquares2()
-		createSquares2()
 	}
 	var id = setInterval(frame,5);
 	counter = 0;
 	function frame(){
-		if(counter == 390){
-			picFlip()
+		if(counter == 600){
 			clearInterval(id);
 			inProgress = false;
-			var id2 = setInterval(frame2,5);
-			function frame2(){
-				if (counter == 1170){
-				clearInterval(id2);
-				inProgress = false;
-			}
-			else{
-				let tile1=document.getElementsByClassName('div')[counter]
-				tile1.innerHTML = wordStr.charAt(counter)
-				var instanceNum = Math.floor(counter/30)
-				var wordNum = Math.floor((counter%30)/5);
-				var squareNum = counter%5;
-				var ptrn = getPattern2(instanceNum);
-				var ptrn2 = ptrn[wordNum];
-				var color1 = ptrn2.charAt(squareNum);
-				flipTile(counter, color1);
-				counter++;
-		}
-	}
 		}
 		else{
-			let tile1=document.getElementsByClassName('div')[counter]
-			tile1.innerHTML = wordStr.charAt(counter)
 			var instanceNum = Math.floor(counter/30)
 			var wordNum = Math.floor((counter%30)/5);
 			var squareNum = counter%5;
@@ -93,27 +53,12 @@ function start(){
 		}
 	}
 	
-	
 }
 const flipTile = (tileNum, state) => {
   let tile = document.getElementsByClassName('div')[tileNum]
   tile.classList.add('flip-in');
   setTimeout(() => {
     tile.classList.add(state);
-  }, 250);
-  setTimeout(() => {
-    tile.classList.remove('flip-in');
-    tile.classList.add('flip-out');
-  }, 250);
-  setTimeout(() => {
-    tile.classList.remove('flip-out');
-  }, 1500);
-};
-const picFlip = () => {
-  let tile = document.getElementById('picture')
-  tile.classList.add('flip-in');
-  setTimeout(() => {
-    tile.classList.add('picture');
   }, 250);
   setTimeout(() => {
     tile.classList.remove('flip-in');
@@ -141,31 +86,29 @@ function createWord(correct,result){
 		}
 	}
 }
-var wordStr="ovatelanceelhollyrieearshhellosiouxghostsiouxquaydgnomevalorsixtysiouxulmicbootssotileagerdixierhinedixiesoprahiemsorderadeyrexpelarengeviteadeyrreadyblendexpelebonylimanbruinnobleaileddurgaantredodgeailedidealmodermatermoriaregmamixercharmpygmypreencheepjoltyjoltyagilerstturoridulmicroridrsttutrustlimesmarailimesmonalixtilsmilefellyannexfenksvaguebasicworthmauvechufacloveretexclovebonusramedagnusettlemottorameddreameclossuralecloslappsstailclosereinstakermerusmolarminersmartjoltyjoltyjoltypivotpivotgraceephodpiceachertchufashealguidetimerrouserouseeagertimermeritnomenuphafuhlannevennfuynfunnyoyletbogusgretebogusowlerchampdustsdweltduststriasdustsstudyadesedizzyseavysiouxadeseeasedulmicjoltyjoltyblotehiemsgrandmedallbamoodmylmachoouzelbloomwowkelentorotalvittaixtilsweetdopruoyletraupoowlerdopruproudniseyhumanniseyelveshadjishinetargeephortargeephoraddlegreataphyapleshpolkapolkaaphyahappyredanenemaordaldittodreadadoreillkslappsillkskaurikauriskillemmewdizzypygmypygmypatedadeptrenteagistavenaagistjorammajortenthsuiteweivecheepweiveroyaleenqaexodeettleeagreeenqaqueenerouyembarerouyunlayrainyyoureneoszcinchgretegretegreteenzoshcrusroridscrodreadyhcruscrush"
-var message = "hi veronica 2can you be mygradball date";
-var message2 = "hi veronica 2can you be mygradball date";
-var tList = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ','1','2']
+var message = "i like youveronica 1goodluck  with your compet 22 ";
+var tList = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ','1']
 var cList = [
 ['yyyyy','yrrry','yyyyy','yrrry','yrrry','ggggg'],//a
-['yyyyr','yrrry','yyyyr','yrrry','yyyyr','ggggg'],//b
+['rrrrr','rrrrr','rrrrr','rrrrr','rrrrr','ggggg'],//b
 ['yyyyy','yrrrr','yrrrr','yrrrr','yyyyy','ggggg'],//c
-['yyyyr','yrrry','yrrry','yrrry','yyyyr','ggggg'],//d
+['rrrrr','rrrrr','rrrrr','rrrrr','rrrrr','ggggg'],//d
 ['yyyyy','yrrrr','yyyrr','yrrrr','yyyyy','ggggg'],//e
 ['rrrrr','rrrrr','rrrrr','rrrrr','rrrrr','ggggg'],//f
-['yyyyy','yrrrr','yryyy','yrrry','yyyyy','ggggg'],//g
-['yrrry','yrrry','yyyyy','yrrry','yrrry','ggggg'],//h
+['rrrrr','rrrrr','rrrrr','rrrrr','rrrrr','ggggg'],//g
+['rrrrr','rrrrr','rrrrr','rrrrr','rrrrr','ggggg'],//h
 ['rryrr','rryrr','rryrr','rryrr','rryrr','ggggg'],//i
 ['rrrrr','rrrrr','rrrrr','rrrrr','rrrrr','ggggg'],//j
 ['yrryr','yryrr','yyrrr','yryrr','yrryr','ggggg'],//k
 ['yrrrr','yrrrr','yrrrr','yrrrr','yyyyy','ggggg'],//l
-['yrrry','yyryy','yryry','yrrry','yrrry','ggggg'],//m
+['rrrrr','rrrrr','rrrrr','rrrrr','rrrrr','ggggg'],//m
 ['yrrry','yyrry','yryry','yrryy','yrrry','ggggg'],//n
 ['yyyyy','yrrry','yrrry','yrrry','yyyyy','ggggg'],//o
 ['rrrrr','rrrrr','rrrrr','rrrrr','rrrrr','ggggg'],//p
 ['rrrrr','rrrrr','rrrrr','rrrrr','rrrrr','ggggg'],//q
 ['yyyyr','yrrry','yyyyr','yrrry','yrrry','ggggg'],//r
 ['rrrrr','rrrrr','rrrrr','rrrrr','rrrrr','ggggg'],//s
-['yyyyy','rryrr','rryrr','rryrr','rryrr','ggggg'],//t
+['rrrrr','rrrrr','rrrrr','rrrrr','rrrrr','ggggg'],//t
 ['yrrry','yrrry','yrrry','yrrry','yyyyy','ggggg'],//u
 ['yrrry','yrrry','yrrry','ryryr','rryrr','ggggg'],//v
 ['rrrrr','rrrrr','rrrrr','rrrrr','rrrrr','ggggg'],//w

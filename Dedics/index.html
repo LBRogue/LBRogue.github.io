@@ -1,160 +1,32 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Chem Training</title>
+		<title>Lorenzo's Gradpic dedics!!</title>
 		<meta charset="UTF-8"/>
-		<style>
-		#id-table, #id-table td{
-			border: 1px solid black;
-			border-collapse: collapse;
-		}
-		button{
-			width:10vw;
-			height:5vh;
-		}
-		#id-table td{
-			min-width: 12vw;
-			height:5vh;
-			max-width: 40vw; 
-			min-height: 4vh;
-			font-size: 3.5vh;
-		}
-		#id-table td img{
-			height:15vh;
-		}
-		input{
-			font-size: 3.4vh;
-		}
-		button{
-			font-size: 3.8vh;
-			height:10vh;
-		}
-		</style>
-	</head>
-	<body>
-		<h1>Problems</h1>
-		<div id="mainBody">
-			<table id = "id-table">
-				<tr>
-					<td>Classes of Organic Compounds</td>
-					<td>Structure</td>
-					<td>Name as suffix</td>
-					<td>Name as prefix</td>
-				</tr>
-				<tr>
-					<td><input class="answers" onkeypress="check()" value = "-"></td>
-					<td width = "30vw"><img  id = "tdImage" src = "0.png" /></td>
-					<td><input class="answers" onkeypress="check()" value = "-"></td>
-					<td><input class="answers" onkeypress="check()" value = "-"></td>
-				</tr>
-			</table>
-			<button id="checkButton">Enter</button>
-			<button id="showButton" onclick = "show()">Show Answers</button>
-			<p id = "correctAnswers">Correct Answers:<span></span></p>
-		</div>
+		<script src="js/index.js"></script>
 
-	</body>
-	<script>
-		/*var tC = 0;
-		function add(){
-	var i = document.getElementsByTagName("input")[0];
-	var p = document.getElementsByTagName("p")[0];
-	switch(tC%3){
-		case 0:
-			p.innerHTML += "fG(\"" + i.value + "\", "+ Math.floor(tC/3) +", ";
-			i.value = "";
-		break;
-		case 1:
-			p.innerHTML += "\"" + i.value +"\"" + ", ";
-			i.value = "";
-		break;
-		case 2:
-			p.innerHTML += "\"" +i.value + "\"" +"), " + "<br />";
-			i.value = "";
-		break;
-	}
-	tC++;
-}*/
-		function show(){
-			var answers = document.getElementsByClassName("answers");
-				answers[0].value = currentFG["classes"];
-				answers[1].value = currentFG["suffix"];
-				answers[2].value = currentFG["prefix"];
-		}
-		var fcnlArray = [
-		fG("Carboxylic Acids", 0, "-oic acid", "carboxy"),
-		fG("Acid Anhydrides", 1, "-oic anhydride", "-"),
-		fG("Esters", 2, "-oate", "alkoxycarbonyl"),
-		fG("Thioesters", 3, "-thioate", "alkylthiocarbonyl"),
-		fG("Acid halides", 4, "-oyl halide", "halocarbonyl"),
-		fG("Amides", 5, "-amide", "carbamoyl"),
-		fG("Amides", 6, "-amide", "alkylcarbamoyl"),
-		fG("Amides", 7, "-amide", "alkyl(alkyl) carbamoyl"),
-		fG("Nitriles", 8, "-nitrile", "cyano"),
-		fG("Aldehydes", 9, "-al", "oxo"),
-		fG("Ketones", 10, "-one", "oxo"),
-		fG("Alcohols", 11, "-ol", "hydroxy"),
-		fG("Phenols", 12, "-ol", "hydroxy"),
-		fG("Thiols", 13, "-thiol ", "mercapto"),
-		fG("Amines", 14, "-amine", "amino"),
-		fG("Amines", 15, "-amine", "alkylamino"),
-		fG("Amines", 16, "-amine", "alkyl(alkyl)amino"),
-		fG("Imines", 17, "-imine ", "imino"),
-		fG("Ethers", 18, "ether", "alkoxy"),
-		fG("Sulfides", 19, "sulfide", "alkylthio"),
-		fG("Disulfides", 20, "disulfide", "-"),
-		fG("Alkynes", 21, "-yne", "-"),
-		fG("Alkenes", 22, "-ene", "-"),
-		fG("Alkanes", 23, "-ane", "-"),
-		fG("Azide", 24, "-", "azido"),
-		fG("Halides", 25, "-", "halo"),
-		fG("Nitro group", 26, "-", "nitro")
-		];
-		var counter = 0;
-		var correctAnswers = 0;
-		var status = true;
-		var currentFG = fcnlArray[0];
-		function fG(classes, order, suffix, prefix){
-			var temp = {};
-			temp.classes = classes;
-			temp.suffix = suffix;
-			temp.prefix = prefix;
-			temp.imgS = order + ".png";
-			temp.shown = false;
-			return temp;
-		}
-		function cFG(){
-			var fG = fcnlArray[Math.floor(Math.random()*fcnlArray.length)]
-			while (fG.shown){
-				var fG = fcnlArray[Math.floor(Math.random()*fcnlArray.length)];
-			}
-			currentFG = fG;
-			console.log(fG.imgS);
-			document.getElementById("tdImage").setAttribute("src", fG.imgS);
-			fG.shown = true;
-		}
-		function check(){
-			console.log(counter);
-			var answers = document.getElementsByClassName("answers");
-			if((answers[0].value == currentFG["classes"])&&((answers[1].value == currentFG["suffix"]))&&((answers[2].value == currentFG["prefix"]))){
-				document.getElementsByTagName("span")[0].innerHTML = ++correctAnswers;
-				answers[0].value = "-";
-				answers[1].value = "-";
-				answers[2].value = "-";
-				if (counter == fcnlArray.length){
-					console.log("reset");
-					counter = 0;
-					for(let i = 0; i<fcnlArray.length; i++){
-						fcnlArray[i].shown = false;
-					}
-				}
-				counter++;
-				cFG();
-			}
-			
-		}
-		document.getElementById("checkButton").addEventListener("click", check)
-	</script>	
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+	</head>
+	<body onload="start()">
+    <div id="main">
+		<div id="div1" onclick="window.open('https://drive.google.com/file/d/1xiaPQQDq-BOoHU9gDtBFO3QR8xXWsRbH/view?usp=sharing')"></div>
+		<div id="div2" onclick="window.open('https://drive.google.com/file/d/16a3VLSAzEL0aN05UU-1kmLL-HKunxQ8k/view?usp=sharing')"></div>
+		<div id="div3" onclick="window.open('https://drive.google.com/file/d/1Ou0hjG7XMmc8vat-6l6Fvz5-dvhOR2Ay/view?usp=sharing')"></div>
+		<div id="div4" onclick="window.open('https://drive.google.com/file/d/1D0VHuPaw5znhOBvhVHCJKKGNxiVOhmRq/view?usp=sharing')"></div>
+		<div id="div5" onclick="window.open('https://drive.google.com/file/d/1tWb2y_2jVhC2ZiH1rEHlm-QplBKP_04m/view?usp=sharing')"></div>
+		<div id="div6" onclick="window.open('https://drive.google.com/file/d/1cjctD-3cLaAjUglnaa5kU3Zcdj8R0o4-/view?usp=sharing')"></div>
+		<div id="div7" onclick="window.open('https://drive.google.com/file/d/1tX5Ki6I9L2pqf17tFWkNO82QfEzBxvLm/view?usp=sharing')"></div>
+		<div id="div8" onclick="window.open('https://drive.google.com/file/d/1B8VpLd_yGLPeXNJzzWOo_K-q7tyv6Rad/view?usp=sharing')"></div>
+      <div id="messageDiv">
+		<h1 id="name">name</h1>
+		<p id="message"></p>
+      </div>
+    </div>
+  </body>
 </html>
 
 				
