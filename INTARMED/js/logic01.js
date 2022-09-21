@@ -334,7 +334,7 @@ function button1Click(){
 	var charList = ['p','q','r','s','t','u']
 	var generated = generate()
 	var eq = document.getElementById("equation")
-	eq.innerHTML= "Equation: " + generated[0] + generated[2]+generated[3] +"<br>"
+	eq.innerHTML= "Equation: " + generated[0] + " "+generated[2]+" "+generated[3] +"<br>"
 	var counter = 0;
 	for(let a=0;a<generated[1].length;a++){
 		eq.innerHTML+=charList[counter++] + "="+generated[1][a] +"; "
