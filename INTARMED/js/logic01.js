@@ -151,7 +151,7 @@ function compare(compArr){
 function error(){
 	console.log("ERROR!!!")
 }
-function generator(){
+function generate(){
 	var tfArr = [true,false]
 	var opArr = ["↔","⇒"]
 	var leftEq = "";
@@ -328,4 +328,23 @@ function generator(){
 }
 function rng(num){
 	return Math.floor(Math.random()*num)
+}
+var answer = "";
+function button1Click(){
+	var charList = ['p','q','r','s','t','u']
+	var generated = generate()
+	var eq = document.getElementById("equation")
+	eq.innerHTML= "Equation: " + generated[0] + generated[2]+generated[3] +"<br>"
+	var counter = 0;
+	for(let a=0;a<generated[1].length;a++){
+		eq.innerHTML+=charList[counter++] + "="+generated[1][a] +"; "
+	}
+	for(let a=0;a<generated[4].length;a++){
+		eq.innerHTML+=charList[counter++] + "="+generated[4][a] +"; "
+	}
+	answer = compare(generated)
+}
+function button2Click(){
+	var eq = document.getElementById("equation")
+	eq.innerHTML+= "<br>"+"Answer: "+ answer
 }
