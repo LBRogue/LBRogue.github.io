@@ -83,6 +83,11 @@ body{
 }
 @keyframes change8 {
   to {
+    background-image: url(../assets/9.png);
+  }
+}
+@keyframes change9 {
+  to {
     background-image: url(../assets/1.png);
   }
 }
@@ -116,6 +121,10 @@ body{
 }
 .change8 {
   animation: change8 10000ms;
+  animation-fill-mode: forwards;
+}
+.change9 {
+  animation: change9 10000ms;
   animation-fill-mode: forwards;
 }
 

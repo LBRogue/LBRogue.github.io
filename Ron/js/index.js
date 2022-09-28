@@ -1,6 +1,6 @@
 var counter = 0;
 function change(){
-	var numOfPics = 8
+	var numOfPics = 9
 	var picture = document.getElementById("song")
 	picture.classList.add("change"+(counter%8+1))
 	if (counter > 0){
