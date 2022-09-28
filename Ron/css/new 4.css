@@ -1,0 +1,27 @@
+body{
+			margin: 0 0 0 0;
+			padding: 0 0 0 0;
+		}
+		div {
+			height: 100vh;
+			position:center;
+			width: 75vh;
+			overflow:hidden;
+			margin: auto;
+			padding: 0 0 0 0;
+		}
+		#song {
+        background-image: url(YinYang2.png);
+		background-size: 600px auto;
+        background-repeat: repeat;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 10px;
+        text-align: justified;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-family: 'Steelfish Rg', 'helvetica neue',
+                    helvetica, arial, sans-serif;
+        font-weight: 800;
+        -webkit-font-smoothing: antialiased;
+		}

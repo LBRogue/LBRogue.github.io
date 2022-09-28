@@ -1,0 +1,125 @@
+body{
+			margin: 0 0 0 0;
+			background-color: black;
+			padding: 0 0 0 0;
+		}
+		div {
+			height: 100vh;
+			position:center;
+			width: 75vh;
+			overflow:hidden;
+			margin: auto;
+			padding: 0 0 0 0;
+		}
+		#song {
+        background-image: url(../assets/1.png);
+		background-size: 600px auto;
+        background-repeat: repeat;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 10px;
+        text-align: justify;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-family: 'Steelfish Rg', 'helvetica neue',
+                    helvetica, arial, sans-serif;
+        font-weight: 800;
+		letter-spacing:0px;
+		line-height:80%;
+        -webkit-font-smoothing: antialiased;
+		}
+		.class2 {
+        background-image: url(../assets/1.png);
+		background-size: 600px auto;
+        background-repeat: repeat;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 10px;
+        text-align: justify;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-family: 'Steelfish Rg', 'helvetica neue',
+                    helvetica, arial, sans-serif;
+        font-weight: 800;
+		letter-spacing:0px;
+		line-height:80%;
+        -webkit-font-smoothing: antialiased;
+		}
+
+@keyframes change1 {
+  to {
+    background-image: url(../assets/2.png);
+  }
+}
+@keyframes change2 {
+  to {
+    background-image: url(../assets/3.png);
+  }
+}
+@keyframes change3 {
+  to {
+    background-image: url(../assets/4.png);
+  }
+}
+@keyframes change4 {
+  to {
+    background-image: url(../assets/5.png);
+  }
+}
+@keyframes change5 {
+  to {
+    background-image: url(../assets/6.png);
+  }
+}
+@keyframes change6 {
+  to {
+    background-image: url(../assets/7.png);
+  }
+}
+@keyframes change7 {
+  to {
+    background-image: url(../assets/8.png);
+  }
+}
+@keyframes change8 {
+  to {
+    background-image: url(../assets/1.png);
+  }
+}
+.change1 {
+  animation: change1 10000ms;
+  animation-fill-mode: forwards;
+}
+.change2 {
+  animation: change2 10000ms;
+  animation-fill-mode: forwards;
+}
+.change3 {
+  animation: change3 10000ms;
+  animation-fill-mode: forwards;
+}
+.change4 {
+  animation: change4 10000ms;
+  animation-fill-mode: forwards;
+}
+.change5 {
+  animation: change5 10000ms;
+  animation-fill-mode: forwards;
+}
+.change6 {
+  animation: change6 10000ms;
+  animation-fill-mode: forwards;
+}
+.change7 {
+  animation: change7 10000ms;
+  animation-fill-mode: forwards;
+}
+.change8 {
+  animation: change8 10000ms;
+  animation-fill-mode: forwards;
+}
+
+.flip-out {
+  animation: flip-out 250ms;
+  animation-fill-mode: forwards;
+}
