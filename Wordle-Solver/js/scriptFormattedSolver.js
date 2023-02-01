@@ -521,8 +521,8 @@ function getPattern(idx){
 	var idx2 = tList.indexOf(message.charAt(idx));
 	return cList[idx2]
 }
-var message = "hi veronica 2can you be mygradball date";
-var message2 = "hi veronica 2can you be mygradball date";
+var message = "";
+var message2 = "";
 var tList = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ','1','2']
 var cList = [
 ['yyyyy','y???y','yyyyy','y???y','y???y','ggggg'],//a
