@@ -1,54 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-	
-		<title> Wordle Solver </title>
-		<style>
-		div{
-			height:5vh;
-			width: 5vh;
-			background-color:gray;
-		}
-		.gray{
-			background-color:gray;
-		}
-		.yellow{
-			background-color:yellow;
-		}
-		.green{
-			background-color:green;
-		}
-		</style>
-		<meta charset="UTF-8" />
-		
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		
-		<!-- CSS Link -->
-		
-		<!-- JS Scripts (start) -->
-	</head>
-	
-	<body>
-	<input type="checkbox" id="hmCheckbox" onclick="hmToggle()">Hard Mode on?
-	<br />
-	<br />
-		<input id="guessvalue" value="adieu">
-<p id="guess">Guess 1:</p>
-<button type="button" onclick="submit()">Submit</button>
-</form>
-<table>
-<td><div id="0" onclick="changeColor(0)"></div></td>
-<td><div id="1" onclick="changeColor(1)"></div></td>
-<td><div id="2" onclick="changeColor(2)"></div></td>
-<td><div id="3" onclick="changeColor(3)"></div></td>
-<td><div id="4" onclick="changeColor(4)"></div></td>
-</table>
-Best guess:
-<p id="bguess">adieu</p>
-Possible answers:
-<p id="pguess"></p>
-		<!-- JS Scripts (end) -->
-		<script src="js/index.js"></script>
-	</body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/wordleSolverStyles.css">
+  <script src="js/scriptFormattedSolver.js" defer></script>
+  <title>Wordle Solver</title>
+  <!-- base format taken from WebDevSimplified-->
+</head>
+<body onload="updateColors()">
+  <div class="alert-container" data-alert-container></div>
+  <div data-guess-grid class="guess-grid">
+    <div class="tile" onclick="changeColor(0)">A</div>
+    <div class="tile" onclick="changeColor(1)">D</div>
+    <div class="tile" onclick="changeColor(2)">I</div>
+    <div class="tile" onclick="changeColor(3)">E</div>
+    <div class="tile" onclick="changeColor(4)">U</div>
+    <div class="tile" onclick="changeColor(5)"></div>
+    <div class="tile" onclick="changeColor(6)"></div>
+    <div class="tile" onclick="changeColor(7)"></div>
+    <div class="tile" onclick="changeColor(8)"></div>
+    <div class="tile" onclick="changeColor(9)"></div>
+    <div class="tile" onclick="changeColor(10)"></div>
+    <div class="tile" onclick="changeColor(11)"></div>
+    <div class="tile" onclick="changeColor(12)"></div>
+    <div class="tile" onclick="changeColor(13)"></div>
+    <div class="tile" onclick="changeColor(14)"></div>
+    <div class="tile" onclick="changeColor(15)"></div>
+    <div class="tile" onclick="changeColor(16)"></div>
+    <div class="tile" onclick="changeColor(17)"></div>
+    <div class="tile" onclick="changeColor(18)"></div>
+    <div class="tile" onclick="changeColor(19)"></div>
+    <div class="tile" onclick="changeColor(20)"></div>
+    <div class="tile" onclick="changeColor(21)"></div>
+    <div class="tile" onclick="changeColor(22)"></div>
+    <div class="tile" onclick="changeColor(23)"></div>
+    <div class="tile" onclick="changeColor(24)"></div>
+    <div class="tile" onclick="changeColor(25)"></div>
+    <div class="tile" onclick="changeColor(26)"></div>
+    <div class="tile" onclick="changeColor(27)"></div>
+    <div class="tile" onclick="changeColor(28)"></div>
+    <div class="tile" onclick="changeColor(29)"></div>
+  <div id="continueBtn" onclick="submit()"> Solve Next </div>
+  </div>
+  
+  
+  </div>
+</body>
 </html>
-

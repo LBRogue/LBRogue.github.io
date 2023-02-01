@@ -107,10 +107,6 @@ minimum = 9007199254740991;
 minIdx = 0;
 hardMode = false;
 bguess = "adieu";
-document.getElementById("guessvalue").value="adieu";
-document.getElementById("guess").innerHTML="Guess 1:";
-document.getElementById("bguess").innerHTML="adieu";
-document.getElementById("pguess").innerHTML="";
 }
 function solver(start, end){
 	if (hardMode){
@@ -138,20 +134,42 @@ function solver(start, end){
 		if (((counter < minimum)||((counter ==minimum)&&(curList3.indexOf(dict[i])!=-1)))&&(counter>0)){
 			minimum = counter;
 			minIdx = i
-			document.getElementById("bguess").innerHTML = dict[minIdx] + " (still calculating)";
+			
 			//console.log("yes");
 		}
 	}
 	
 	if (typeof dictCopy != "undefined"){
-		document.getElementById("guessvalue").value = dictCopy[minIdx];
 		bguess = dictCopy[minIdx];
-	document.getElementById("bguess").innerHTML = bguess;
-	return dict[minIdx];
-	}
-	document.getElementById("bguess").innerHTML = "none"
+		if (curList3.length ==1){
+			console.log("answer found")
+			for (let k=0;k<5;k++){
+				colors[k+guessNo*5]==2;
+				document.getElementsByClassName("tile")[k+guessNo*5].classList.remove('gray')
+				document.getElementsByClassName("tile")[k+guessNo*5].classList.remove('yellow')
+				document.getElementsByClassName("tile")[k+guessNo*5].classList.add('green')
+			}
+			for (let l=0;l<30;l++){
+				document.getElementsByClassName("tile")[l].onclick=""
+			}
+			document.getElementById("continueBtn").onclick=reset
+			document.getElementById("continueBtn").style.backgroundColor='hsl(120, 100%, 28%)'
+			console.log("reset")
+		}
+	enterIntoTiles();
 	
 	return dict[minIdx];
+	}
+	
+	
+	return dict[minIdx];
+}
+function enterIntoTiles(){
+	for(let j=0;j<5;j++){
+		document.getElementsByClassName("tile")[j+guessNo*5].innerHTML=bguess.charAt(j)
+		document.getElementsByClassName("tile")[j+(guessNo-1)*5].onclick=""
+	}
+	guessNo++;
 }
 function submit(){
 	if (guessNo == "1"){
@@ -176,8 +194,7 @@ function submit(){
 					curList2 = presolvedFirstGuessHMOff[a][1]
 					curList3 = presolvedFirstGuessHMOff[a][1]
 					bguess=presolvedFirstGuessHMOff[a][2]
-					document.getElementById("bguess").innerHTML = bguess;
-					document.getElementById("guessvalue").value= bguess;
+					enterIntoTiles()
 					console.log("yes")
 					updateList(curList3);
 					break;
@@ -215,7 +232,7 @@ function firstGuess(){
 							firstGuessList.push(temp3)
 						}
 						else{
-							document.getElementById("bguess").innerHTML = "need 5 letter word, fcn cancelled";
+							
 							console.log("need 5 letter word, fcn cancelled");
 						}
 					}
@@ -259,18 +276,17 @@ function displayFirstGuess(){
 function mainFcn(){
 	temp = "";
 	for (let i=0;i<5;i++){
-		if (colors[i]%3==0){
+		if (colors[i+(guessNo-1)*5]%3==0){
 			temp+="?";
 		}
-		else if (colors[i]%3==1){
+		else if (colors[i+(guessNo-1)*5]%3==1){
 			temp+="y";
 		}
-		else if (colors[i]%3==2){
+		else if (colors[i+(guessNo-1)*5]%3==2){
 			temp+="g";
 		}
 	}
-	temp2 = document.getElementById("guessvalue").value
-	document.getElementById("guessvalue").value = "";
+	temp2 = bguess
 	//console.log("inputting "+temp2+temp);
 	if (temp2.length==5){
 		var newList = inputAttempt(curList3,temp2,temp, green1, yellow1);
@@ -279,7 +295,7 @@ function mainFcn(){
 		console.log(solver(0,dict.length));
 	}
 	else{
-		document.getElementById("bguess").innerHTML = "need 5 letter word, fcn cancelled";
+		
 		console.log("need 5 letter word, fcn cancelled");
 	}
 }
@@ -382,29 +398,26 @@ function updateList(curList){
 		temp+=curList[i];
 		temp+=" \n ";
 	}
-	document.getElementById("pguess").innerHTML = temp;
-	guessNo++;
-	document.getElementById("guess").innerHTML = "Guess " + guessNo + ":";
 	
 }
-colors = [0,0,0,0,0]
+colors = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 function changeColor(number){
 	colors[number]++;
 	updateColors();
 }
 function updateColors(){
-	for (let i=0;i<5;i++){
+	for (let i=0;i<30;i++){
 		if (colors[i]%3==0){
-			document.getElementById(i).classList.add('gray')
-			document.getElementById(i).classList.remove('green')
+			document.getElementsByClassName("tile")[i].classList.add('gray')
+			document.getElementsByClassName("tile")[i].classList.remove('green')
 		}
 		else if (colors[i]%3==1){
-			document.getElementById(i).classList.add('yellow')
-			document.getElementById(i).classList.remove('gray')
+			document.getElementsByClassName("tile")[i].classList.add('yellow')
+			document.getElementsByClassName("tile")[i].classList.remove('gray')
 		}
 		else if (colors[i]%3==2){
-			document.getElementById(i).classList.add('green')
-			document.getElementById(i).classList.remove('yellow')
+			document.getElementsByClassName("tile")[i].classList.add('green')
+			document.getElementsByClassName("tile")[i].classList.remove('yellow')
 		}
 	}
 }
@@ -542,46 +555,7 @@ var cList = [
 ['??y??','y??y?','???y?','y??y?','??y??','ggggg'],//smiley
 ['??y??','??y??','??y??','?????','??y??','ggggg']//exclamation
 ]
-words = ['hello',
-'valor',
-'eager',
-'order',
-'ready',
-'noble',
-'ideal',
-'charm',
-'agile',
-'trust',
-'smile',
-'worth',
-'bonus',
-'dream',
-'close',
-'smart',
-'grace',
-'guide',
-'merit',
-'funny',
-'champ',
-'study',
-'eased',
-'grand',
-'bloom',
-'sweet',
-'proud',
-'shine',
-'great',
-'happy',
-'adore',
-'skill',
-'adept',
-'major',
-'royal',
-'queen',
-'youre',
-'enzos',
-'crush'
-]
+
 function findWords(){
 	var str=""
 	for (let a=0;a<words.length;a++){
