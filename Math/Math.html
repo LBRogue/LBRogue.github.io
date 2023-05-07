@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Math Training</title>
+		<meta charset="UTF-8"/>
+	</head>
+	<body>
+		<h1>Problems</h1>
+		<button>Addition</button><button>Subtraction</button><button>Multiplication</button><button>Division</button><br /><button>Fraction: Addition</button><button>Fraction: Subtraction</button><button>Fraction: Multiplication</button><button>Fraction: Division</button><br />	<button>LCM</button><button>GCF</button>
+		<div id="mainBody">
+			<p id = "equation"></p>
+			<p>Answer: <input id="answer" onkeypress="setTimeout(check, 100)"></p>
+			<button id="checkButton">Enter</button>
+			<p>Correct Answers:<span></span></p>
+		</div>
+
+	</body>
+	<script>
+	/* monty hall problem thing
+	function Probability(x){
+		var correct
+		var choice
+		var wrong
+		var counter = 0
+		for(i=0;i<x;i++){
+		correct = Math.floor(Math.random()*3)
+		choice = Math.floor(Math.random()*3)
+		for(j=0;j<3;j++){
+		if((j!=correct)&&(j!=choice)){
+			choice = 3 - (j+choice);
+			break;
+		}
+		}
+		if(correct == choice){
+			counter++
+		}
+		}
+		console.log(counter)
+	}
+	function Probability2(x){
+		var correct
+		var choice
+		var wrong
+		var counter = 0
+		for(i=0;i<x;i++){
+		correct = Math.floor(Math.random()*4)
+		choice = Math.floor(Math.random()*4)
+		for(k=0;k<4;k++){
+			if((k!=correct)&&(k!=choice)){
+			break;
+			}
+		}
+		for(j=k+1;j<4;j++){
+		if((j!=correct)&&(j!=choice)){
+			choice = 6 - (k+j+choice);
+			break;
+		}
+		}
+		if(correct == choice){
+			counter++
+		}
+		}
+		console.log(counter)
+	}
+	function Probability3(x){
+		var correct
+		var choice
+		var wrong
+		var counter = 0
+		for(i=0;i<x;i++){
+		correct = Math.floor(Math.random()*4)
+		choice = Math.floor(Math.random()*4)
+		var k = choice;
+		for(j=0;j<4;j++){
+		if((j!=correct)&&(j!=choice)){
+			while((k==choice)||(k==j)){
+			k = Math.floor(Math.random()*4)
+			}
+			choice = 6 - (k+j+choice);
+			break;
+		}
+		}
+		if(correct == choice){
+			counter++
+		}
+		}
+		console.log(counter)
+	}
+	function Probability4(x){
+		var correct
+		var choice
+		var wrong
+		var counter = 0
+		for(i=0;i<x;i++){
+		correct = Math.floor(Math.random()*5)
+		choice = Math.floor(Math.random()*5)
+		for(k=0;k<5;k++){
+			if((k!=correct)&&(k!=choice)){
+			break;
+			}
+		}
+		for(l=k+1;l<5;l++){
+		if((l!=correct)&&(l!=choice)){
+			break;
+		}
+		}
+		for(j=l+1;j<5;j++){
+		if((j!=correct)&&(j!=choice)){
+			choice = 10 - (k+j+l+choice);
+			break;
+		}
+		}
+		if(correct == choice){
+			counter++
+		}
+		}
+		console.log(counter)
+	}
+	function Probability5(x){
+		var correct
+		var choice
+		var wrong
+		var counter = 0
+		for(i=0;i<x;i++){
+		correct = Math.floor(Math.random()*5)
+		choice = Math.floor(Math.random()*5)
+		var k = choice;
+		var l = choice;
+		for(j=0;j<4;j++){
+		if((j!=correct)&&(j!=choice)){
+			while((k==choice)||(k==j)){
+			k = Math.floor(Math.random()*5)
+			}
+			while((l==choice)||(l==j)||(l==k)){
+			l = Math.floor(Math.random()*5)
+			}
+			choice = 10 - (k+j+l+choice);
+			break;
+		}
+		}
+		if(correct == choice){
+			counter++
+		}
+		}
+		console.log(counter)
+	}
+	function Probability6(x){
+		var correct
+		var choice
+		var wrong
+		var counter = 0
+		for(i=0;i<x;i++){
+		correct = Math.floor(Math.random()*3)
+		choice = Math.floor(Math.random()*3)
+		choice2 = Math.floor(Math.random()*3)
+		if(choice!=choice2){
+			choice = choice2
+		}
+		if(correct == choice){
+			counter++
+		}
+		}
+		console.log(counter)
+	}
+	function Probability7(x){
+		var correct
+		var choice
+		var wrong
+		var counter = 0
+		for(i=0;i<x;i++){
+		correct = Math.floor(Math.random()*5)
+		choice = Math.floor(Math.random()*5)
+		for(k=0;k<5;k++){
+			if((k!=correct)&&(k!=choice)){
+			break;
+			}
+		}
+		for(l=k+1;l<5;l++){
+		if((l!=correct)&&(l!=choice)){
+			break;
+		}
+		}
+		var j = choice
+		while((j==choice)||(j==k)||(j==l)){
+			j=Math.floor(Math.random()*5)
+		}
+			choice = 10 - (k+j+l+choice);
+		if(correct == choice){
+			counter++
+		}
+		}
+		console.log(counter)
+	}*/
+	
+		var number1 = Math.floor(Math.random()*900+100)
+		var number2 = Math.floor(Math.random()*900+100)
+		var number3
+		var number4
+		var operation = "add"
+		var correctAnswers = [0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+		document.getElementById("equation").innerHTML = number1 +" + " + number2 + " = "
+		console.log(number1+number2)
+		function check(){
+				console.log("checking")
+				switch(operation) {
+					case "add":
+					if((number1 + number2)==document.getElementById("answer").value){
+				correctAnswers[0]++
+				document.getElementsByTagName("span")[0].innerHTML = correctAnswers[0]
+				renew()
+				}
+					break;
+					case "sub":
+					if((number1 - number2)==document.getElementById("answer").value){
+				correctAnswers[1]++
+				document.getElementsByTagName("span")[0].innerHTML = correctAnswers[1]
+				renew()
+				}
+					break;
+					case "mult":
+					if((number1 * number2)==document.getElementById("answer").value){
+				correctAnswers[2]++
+				document.getElementsByTagName("span")[0].innerHTML = correctAnswers[2]
+				renew()
+				}
+					break;
+					case "divi":
+					if((number1 / number2)==document.getElementById("answer").value){
+				correctAnswers[3]++
+				document.getElementsByTagName("span")[0].innerHTML = correctAnswers[3]
+				renew()
+				}
+					break;
+					case "add2":
+					var basis = number2*number4 / (hcf(number2,number4))
+					var numerator = number1*basis/number2 + number3*basis/number4
+					var denominator = basis
+					var answer = fractionSimplify(numerator,denominator)
+					console.log(answer)
+					if(answer==document.getElementById("answer").value){
+				correctAnswers[4]++
+				document.getElementsByTagName("span")[0].innerHTML = correctAnswers[4]
+				renew()
+				}
+					break;
+					case "sub2":
+					var basis = number2*number4/ (hcf(number2,number4))
+					var numerator = number1*basis/number2 - number3*basis/number4
+					var denominator = basis
+					var answer = fractionSimplify(numerator,denominator)
+					if(answer==document.getElementById("answer").value){
+				correctAnswers[5]++
+				document.getElementsByTagName("span")[0].innerHTML = correctAnswers[5]
+				renew()
+				}
+					break;
+					case "mult2":
+					var numerator = number1 * number3
+					var denominator = number2 * number4
+					var answer = fractionSimplify(numerator,denominator)
+					console.log(answer)
+					if(answer==document.getElementById("answer").value){
+				correctAnswers[6]++
+				document.getElementsByTagName("span")[0].innerHTML = correctAnswers[6]
+				renew()
+				}
+					break;
+					case "divi2":
+					var numerator = number1 * number4
+					var denominator = number2 * number3
+					var answer = fractionSimplify(numerator,denominator)
+					if(answer==document.getElementById("answer").value){
+				correctAnswers[7]++
+				document.getElementsByTagName("span")[0].innerHTML = correctAnswers[7]
+				renew()
+				}
+					break;
+					case "gcf":
+					var answer = hcf(number1,number2)
+					if(answer==document.getElementById("answer").value){
+				correctAnswers[8]++
+				document.getElementsByTagName("span")[0].innerHTML = correctAnswers[8]
+				renew()
+				}
+					break;
+					case "lcm":
+					var answer = number1*number2 /(hcf(number1,number2))
+					if(answer==document.getElementById("answer").value){
+				correctAnswers[9]++
+				document.getElementsByTagName("span")[0].innerHTML = correctAnswers[9]
+				renew()
+				}
+					break;
+				}
+			}
+		function renew(){
+			document.getElementById("answer").value = ""
+			switch(operation){
+				case "add":
+					number1 = Math.floor(Math.random()*900+100)
+			number2 = Math.floor(Math.random()*900+100)
+			document.getElementById("equation").innerHTML = number1 +" + " + number2 + " = "
+			console.log(number1+number2)
+				break;
+				case "sub":
+				number1 = Math.floor(Math.random()*900+100)
+			number2 = Math.floor(Math.random()*899+100)
+			while(number1<number2){
+				number2 = Math.floor(Math.random()*900+100)
+			}
+			document.getElementById("equation").innerHTML = number1 +" - " + number2 + " = "
+			console.log(number1-number2)
+				break;
+				case "mult":
+				number1 = Math.floor(Math.random()*900+100)
+			number2 = Math.floor(Math.random()*6+3)
+			document.getElementById("equation").innerHTML = number1 +" x " + number2 + " = "
+			console.log(number1*number2)
+				break;
+				case "divi":
+				number1 = Math.floor(Math.random()*900+100)
+			number2 = Math.floor(Math.random()*9+3)
+			while(number1%number2!=0){
+				number1 = Math.floor(Math.random()*900+100)
+			number2 = Math.floor(Math.random()*9+3)
+			}
+			document.getElementById("equation").innerHTML = number1 +" divided by " + number2 + " = "
+			console.log(number1/number2)
+				break;
+				case "add2":
+					number1 = Math.floor(Math.random()*11+1)
+					number2 = Math.floor(Math.random()*11+1)
+					number3 = Math.floor(Math.random()*11+1)
+					number4 = Math.floor(Math.random()*11+1)
+					while((number1==number2)||(number3==number4)||(number1%number2==0)||(number3%number4==0)||(number1/number2 - number3/number4 ==0)){
+						number1 = Math.floor(Math.random()*11+1)
+					number2 = Math.floor(Math.random()*11+1)
+					number3 = Math.floor(Math.random()*11+1)
+					number4 = Math.floor(Math.random()*11+1)
+					}
+				document.getElementById("equation").innerHTML = number1 +"/" +number2 +" + "+ number3 +"/" +number4
+				break;
+				case "sub2":
+					number1 = Math.floor(Math.random()*11+1)
+					number2 = Math.floor(Math.random()*11+1)
+					number3 = Math.floor(Math.random()*11+1)
+					number4 = Math.floor(Math.random()*11+1)
+					while((number1==number2)||(number3==number4)||(number1%number2==0)||(number3%number4==0)||(number1/number2 - number3/number4 <=0)){
+						number1 = Math.floor(Math.random()*11+1)
+					number2 = Math.floor(Math.random()*11+1)
+					number3 = Math.floor(Math.random()*11+1)
+					number4 = Math.floor(Math.random()*11+1)
+					}
+				document.getElementById("equation").innerHTML = number1 +"/" +number2 +" - "+ number3 +"/" +number4
+				break;
+				case "mult2":
+				number1 = Math.floor(Math.random()*11+1)
+					number2 = Math.floor(Math.random()*11+1)
+					number3 = Math.floor(Math.random()*11+1)
+					number4 = Math.floor(Math.random()*11+1)
+					while((number1==number2)||(number3==number4)||(number1%number2==0)||(number3%number4==0)){
+						number1 = Math.floor(Math.random()*11+1)
+					number2 = Math.floor(Math.random()*11+1)
+					number3 = Math.floor(Math.random()*11+1)
+					number4 = Math.floor(Math.random()*11+1)
+					}
+				document.getElementById("equation").innerHTML = number1 +"/" +number2 +" x "+ number3 +"/" +number4
+				break;
+				case "divi2":
+				number1 = Math.floor(Math.random()*11+1)
+					number2 = Math.floor(Math.random()*11+1)
+					number3 = Math.floor(Math.random()*11+1)
+					number4 = Math.floor(Math.random()*11+1)
+					while((number1==number2)||(number3==number4)||(number1%number2==0)||(number3%number4==0)){
+						number1 = Math.floor(Math.random()*11+1)
+					number2 = Math.floor(Math.random()*11+1)
+					number3 = Math.floor(Math.random()*11+1)
+					number4 = Math.floor(Math.random()*11+1)
+					}
+				document.getElementById("equation").innerHTML = number1 +"/" +number2 +" divided by "+ number3 +"/" +number4
+				break;
+				case "gcf":
+					number1 = Math.floor(Math.random()*200+10)
+					number2 = Math.floor(Math.random()*200+10)
+					while((number1==number2)||(hcf(number1,number2)==1)){
+						number1 = Math.floor(Math.random()*200+10)
+					number2 = Math.floor(Math.random()*200+10)
+					}
+					document.getElementById("equation").innerHTML = "Get the GCF of " + number1 + " and " + number2
+				break;
+				case "lcm":
+					number1 = Math.floor(Math.random()*20+3)
+					number2 = Math.floor(Math.random()*20+3)
+					while(number1==number2){
+						number1 = Math.floor(Math.random()*20+3)
+					number2 = Math.floor(Math.random()*20+3)
+					}
+					document.getElementById("equation").innerHTML = "Get the LCM of " + number1 + " and " + number2
+				break;
+			}
+		}
+		function primeFactorization(number){
+			var number2 = number
+			var factors = []
+			for(i=2;i<=number2;i++){
+				if(number%i==0){
+					factors.push(i)
+					number/=i
+					i--
+				}	
+			}
+			return factors
+		}	
+		function hcf(number1,number2){
+			var number1Factorized = primeFactorization(number1)
+			var number2Factorized = primeFactorization(number2)
+			var commonFactors = [1]
+			var hcf = 1
+			for(a=0;a<number1Factorized.length;a++){
+				for(b=0;b<number2Factorized.length;b++){
+					if(number1Factorized[a]==number2Factorized[b]){
+						commonFactors.push(number1Factorized[a])
+						number1Factorized.splice(a,1)
+						number2Factorized.splice(b,1)
+						a--
+						b--
+					}
+				}
+			}
+			for(i=0;i<commonFactors.length;i++){
+				hcf*=commonFactors[i]
+			}
+			return hcf
+		}
+		function fractionSimplify(numerator,denominator){
+			var gcf = hcf(numerator,denominator)
+			return numerator/gcf + "/" + denominator/gcf
+		}	
+		function add(){
+		if(operation !="add"){
+		operation = "add"
+		document.getElementsByTagName("span")[0].innerHTML = correctAnswers[0]
+		renew()
+		}
+		
+		}
+		function sub(){
+		if(operation !="sub"){
+		operation = "sub"
+		document.getElementsByTagName("span")[0].innerHTML = correctAnswers[1]
+		renew()
+		}
+		}
+		function mult(){
+		if(operation !="mult"){
+		operation = "mult"
+		document.getElementsByTagName("span")[0].innerHTML = correctAnswers[2]
+		renew()
+		}
+		}
+		function divi(){
+		if(operation !="divi"){
+		operation = "divi"
+		document.getElementsByTagName("span")[0].innerHTML = correctAnswers[3]
+		renew()
+		}
+		}
+		function add2(){
+		if(operation !="add2"){
+		operation = "add2"
+		document.getElementsByTagName("span")[0].innerHTML = correctAnswers[4]
+		renew()
+		}
+		
+		}
+		function sub2(){
+		if(operation !="sub2"){
+		operation = "sub2"
+		document.getElementsByTagName("span")[0].innerHTML = correctAnswers[5]
+		renew()
+		}
+		}
+		function mult2(){
+		if(operation !="mult2"){
+		operation = "mult2"
+		document.getElementsByTagName("span")[0].innerHTML = correctAnswers[6]
+		renew()
+		}
+		}
+		function divi2(){
+		if(operation !="divi2"){
+		operation = "divi2"
+		document.getElementsByTagName("span")[0].innerHTML = correctAnswers[7]
+		renew()
+		}
+		}	
+		function lcm(){
+		if(operation !="lcm"){
+		operation = "lcm"
+		document.getElementsByTagName("span")[0].innerHTML = correctAnswers[8]
+		renew()
+		}
+		}
+		function gcf(){
+		if(operation !="gcf"){
+		operation = "gcf"
+		document.getElementsByTagName("span")[0].innerHTML = correctAnswers[9]
+		renew()
+		}
+		
+		}
+		var arrayList = [];
+		
+		document.getElementById("checkButton").addEventListener("click", check)
+		document.getElementsByTagName("button")[0].addEventListener("click", add)
+		document.getElementsByTagName("button")[1].addEventListener("click", sub)
+		document.getElementsByTagName("button")[2].addEventListener("click", mult)
+		document.getElementsByTagName("button")[3].addEventListener("click", divi)
+		document.getElementsByTagName("button")[4].addEventListener("click", add2)
+		document.getElementsByTagName("button")[5].addEventListener("click", sub2)
+		document.getElementsByTagName("button")[6].addEventListener("click", mult2)
+		document.getElementsByTagName("button")[7].addEventListener("click", divi2)
+		document.getElementsByTagName("button")[8].addEventListener("click", lcm)
+		document.getElementsByTagName("button")[9].addEventListener("click", gcf)
+	</script>	
+</html>
+
+				
