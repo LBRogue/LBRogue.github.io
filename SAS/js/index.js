@@ -61,7 +61,7 @@ function getIdx(code){
 function getDedics(idx){
 	writeMessage(msgList[idx]);
 }
-timeSpeed = [30, 15, 15, 15, 15, 15, 15, 15, 15]
+timeSpeed = [75, 15, 15, 15, 15, 15, 15, 15, 15]
 var inProgress = false;
 function writeMessage(message){
 	if (!inProgress){
