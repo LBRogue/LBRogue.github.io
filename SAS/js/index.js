@@ -81,6 +81,9 @@ function writeMessage(message){
 				if (message.charAt(counter)=="<"){
 					tempMessage+= "br />"
 				}
+				if (message.charAt(counter-2)=="<"){
+					document.getElementById("messageDiv").scrollTop+=400000;
+				}
 				messageDiv.innerHTML = tempMessage;
 				counter++;
 			}
@@ -103,9 +106,11 @@ function releasePics(){
 function module(num){
 	if (num == 0){
 		document.getElementById("vid").style.display = "block";
+		document.getElementById("message").style.textAlign = "center";
 	}
 	else{
 		document.getElementById("vid").style.display = "none";
+		document.getElementById("message").style.textAlign = "justify";
 	}
 	if (current !=num){
 		current=num;

@@ -10,6 +10,7 @@ body{
 	position: -webkit-sticky;
 	border-radius:25px;
 	position:sticky;
+	top:0;
 	margin:30px auto;
 }
 div{
@@ -18,6 +19,7 @@ div{
 }
 #messageDiv{
 	overflow-y:scroll;
+	transition:0.5s;
 }
 *{
 	overflow:hidden;
