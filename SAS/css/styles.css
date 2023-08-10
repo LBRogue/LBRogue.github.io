@@ -64,6 +64,7 @@ p{
 	margin:1vw;
 }
 @media only screen and (orientation: landscape) {
+
   #mainDiv{
 	text-align:justify;
 	position: absolute;
@@ -95,7 +96,7 @@ p{
 	height:21vw;
 	background-size:15vw 21vw;
 	transform:rotate(-20deg);
-	background-image:url("../assets/Module 1.png");
+	background-image:url("../assets/Icebreakers.png");
 	filter:brightness(50%);
 	opacity:0%;
 	transition:.5s;
@@ -112,7 +113,7 @@ p{
 	height:21vw;
 	background-size:15vw 21vw;
 	transform:rotate(-20deg);
-	background-image:url("../assets/Module 2.png");
+	background-image:url("../assets/Application.png");
 	filter:brightness(50%);
 	opacity:0%;
 	transition:.5s;
@@ -127,7 +128,7 @@ p{
 	height:21vw;
 	background-size:15vw 21vw;
 	transform:rotate(-20deg);
-	background-image:url("../assets/Module 3.png");
+	background-image:url("../assets/Integration.png");
 	filter:brightness(50%);
 	opacity:0%;
 	transition:.5s;
@@ -141,7 +142,7 @@ p{
 	height:21vw;
 	background-size:15vw 21vw;
 	transform:rotate(-20deg);
-	background-image:url("../assets/Module 4.png");
+	background-image:url("../assets/Synthesis.png");
 	filter:brightness(50%);
 	opacity:0%;
 	transition:.5s;
@@ -155,7 +156,7 @@ p{
 	height:21vw;
 	background-size:15vw 21vw;
 	transform:rotate(20deg);
-	background-image:url("../assets/Module 5.png");
+	background-image:url("../assets/Icebreakers.png");
 	filter:brightness(50%);
 	opacity:0%;
 	transition:.5s;
@@ -172,7 +173,7 @@ p{
 	height:21vw;
 	background-size:15vw 21vw;
 	transform:rotate(20deg);
-	background-image:url("../assets/Module 6.png");
+	background-image:url("../assets/Application.png");
 	filter:brightness(50%);
 	opacity:0%;
 	transition:.5s;
@@ -187,7 +188,7 @@ p{
 	height:21vw;
 	background-size:15vw 21vw;
 	transform:rotate(20deg);
-	background-image:url("../assets/Module 7.png");
+	background-image:url("../assets/Integration.png");
 	filter:brightness(50%);
 	opacity:0%;
 	transition:.5s;
@@ -201,7 +202,7 @@ p{
 	height:21vw;
 	background-size:15vw 21vw;
 	transform:rotate(20deg);
-	background-image:url("../assets/Module 8.png");
+	background-image:url("../assets/Synthesis.png");
 	filter:brightness(50%);
 	opacity:0%;
 	transition:.5s;
@@ -348,6 +349,10 @@ p{
 }
 */
 @media only screen and (orientation: portrait) {
+#vid{
+	width:80vw;
+	height:45vw;
+}
   #mainDiv{
 	text-align:justify;
 	position: absolute;
@@ -382,7 +387,7 @@ p{
 	height:28vh;
 	background-size:20vh 28vh;
 	transform:rotate(20deg);
-	background-image:url("../assets/Module 1.png");
+	background-image:url("../assets/Icebreakers.png");
 	filter:brightness(50%);
 	opacity:0%;
 	transition:.5s;
@@ -399,7 +404,7 @@ p{
 	height:28vh;
 	background-size:20vh 28vh;
 	transform:rotate(20deg);
-	background-image:url("../assets/Module 2.png");
+	background-image:url("../assets/Application.png");
 	filter:brightness(50%);
 	opacity:0%;
 	transition:.5s;
@@ -414,7 +419,7 @@ p{
 	height:28vh;
 	background-size:20vh 28vh;
 	transform:rotate(20deg);
-	background-image:url("../assets/Module 3.png");
+	background-image:url("../assets/Integration.png");
 	filter:brightness(50%);
 	opacity:0%;
 	transition:.5s;
@@ -428,7 +433,7 @@ p{
 	height:28vh;
 	background-size:20vh 28vh;
 	transform:rotate(20deg);
-	background-image:url("../assets/Module 4.png");
+	background-image:url("../assets/Synthesis.png");
 	filter:brightness(50%);
 	opacity:0%;
 	transition:.5s;
@@ -442,7 +447,7 @@ p{
 	height:28vh;
 	background-size:20vh 28vh;
 	transform:rotate(20deg);
-	background-image:url("../assets/Module 5.png");
+	background-image:url("../assets/Icebreakers.png");
 	filter:brightness(50%);
 	opacity:0%;
 	transition:.5s;
@@ -459,7 +464,7 @@ p{
 	height:28vh;
 	background-size:20vh 28vh;
 	transform:rotate(20deg);
-	background-image:url("../assets/Module 6.png");
+	background-image:url("../assets/Application.png");
 	filter:brightness(50%);
 	opacity:0%;
 	transition:.5s;
@@ -474,7 +479,7 @@ p{
 	height:28vh;
 	background-size:20vh 28vh;
 	transform:rotate(20deg);
-	background-image:url("../assets/Module 7.png");
+	background-image:url("../assets/Integration.png");
 	filter:brightness(50%);
 	opacity:0%;
 	transition:.5s;
@@ -488,7 +493,7 @@ p{
 	height:28vh;
 	background-size:20vh 28vh;
 	transform:rotate(20deg);
-	background-image:url("../assets/Module 8.png");
+	background-image:url("../assets/Synthesis.png");
 	filter:brightness(50%);
 	opacity:0%;
 	transition:.5s;
@@ -531,8 +536,8 @@ p{
 	filter:brightness(100%);
 }
 h1{
-	font-size:2.6em;
+	font-size:1.8em;
 }
 p{
-	font-size:2.1em;
+	font-size:1.2em;
 }
