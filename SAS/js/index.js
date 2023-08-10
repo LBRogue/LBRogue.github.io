@@ -61,6 +61,7 @@ function getIdx(code){
 function getDedics(idx){
 	writeMessage(msgList[idx]);
 }
+timeSpeed = [30, 15, 15, 15, 15, 15, 15, 15, 15]
 var inProgress = false;
 function writeMessage(message){
 	if (!inProgress){
@@ -70,7 +71,7 @@ function writeMessage(message){
 		messageDiv.innerHTML = "";
 		var counter = 0;
 		inProgress = true;
-		id = setInterval(frame,30);
+		id = setInterval(frame,timeSpeed[current]);
 		function frame(){
 			if(counter == message.length){
 				clearInterval(id);
