@@ -295,6 +295,52 @@
 				}
 			}
 		function renew(){
+			/*var dict1 = [
+			0:"add",
+			1:"sub",
+			2:"mult",
+			3:"divi",
+			4:"add2",
+			5:"sub2",
+			6:"mult2",
+			7:"divi2",
+			8:"lcm",
+			9:"gcf"
+			]
+			*/
+			var randomizer = Math.floor(Math.random()*10);
+			switch(randomizer){
+				case 0:
+					add()
+					break;
+				case 1:
+					sub()
+					break;
+				case 2:
+					mult()
+					break
+				case 3:
+					divi()
+					break
+				case 4:
+					add2()
+					break
+				case 5:
+					sub2()
+					break
+				case 6:
+					mult2()
+					break
+				case 7:
+					divi2()
+					break
+				case 8:
+					lcm()
+					break
+				case 9:
+					gcf()
+					break
+			}
 			document.getElementById("answer").value = ""
 			switch(operation){
 				case "add":
