@@ -37,6 +37,9 @@ var listOfNames = [
 "Vincent Arnold Gomez",
 "Yanni Ranollo"
 ]
+var listOfNamesTG = [
+'Lorenzo Manuel Ante', 'Simoun Sitson', 'Joshua Adviento', 'Nelson Paguirigan', 'jv guinto', 'Miguel Mariano', 'Jhaymar Yu', 'Joaquin Covar', 'JeTH', 'Daniel', 'James Ordine', 'Patrick David Mercado', 'Stephen', 'Raphael Odevilas', 'Amos Santos', 'Yanni Ranollo', 'Francis Ryan Uy', 'Oliver Narvasa', 'Rafael Mariano', 'Marion Magsuay', 'ivan', 'Gabriel Tee', 'carv', 'Ivan Pagaddu', 'Aljo Tanael', 'Franco Severo', 'Gelo', 'hans carinugan', 'Red', 'Vincent Gomez', "Forth Garcia", "Jiggy Dungca"
+]
 function check(){
 	var tempListOfNames = listOfNames
 	var pollInputAnswer = pollInput.value
@@ -58,5 +61,32 @@ function check(){
 	}
 	console.log(tempString)
 	spanTemp.innerHTML=tempString;
+	console.log(tempListOfNames)
+}
+
+var pollInput2 = document.getElementById("answer2")
+var spanTemp2 = document.getElementsByTagName("span")[1]
+document.getElementById("checkButton2").addEventListener("click", check2)
+function check2(){
+	var tempListOfNames = listOfNamesTG
+	var pollInputAnswer = pollInput2.value
+	console.log(pollInputAnswer)
+	for(i=0;i<tempListOfNames.length;i++){
+		console.log(tempListOfNames[i])
+		if((pollInputAnswer.includes(tempListOfNames[i]))){
+			tempListOfNames.splice(i,1)
+			i--;
+		}
+	}
+	var tempString = "";
+	tempString += "<br />"
+	for(i=0;i<tempListOfNames.length;i++){
+		tempString +='@'
+		tempString +=tempListOfNames[i]
+		tempString += "\n\n"
+		tempString += "<br />"
+	}
+	console.log(tempString)
+	spanTemp2.innerHTML=tempString;
 	console.log(tempListOfNames)
 }
